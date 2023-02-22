@@ -1,0 +1,34 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PathMovement : MonoBehaviour, IMovement
+{
+    [SerializeField] private float _speed;
+
+    private IPathfinder _pathfinder;
+
+    public void Constructor(IPathfinder pathfinder)
+    {
+        _pathfinder = pathfinder;
+    }
+
+    public void Move(Vector3 to)
+    {
+        var path = _pathfinder.Find(transform.position, to);
+        StartCoroutine(MoveCoroutine(path));
+    }
+
+    private IEnumerator MoveCoroutine(IEnumerable<Vector3> path)
+    {
+        foreach (var target in path)
+        {
+            var direction = (target - transform.position).normalized;
+            while (Vector3.Distance(transform.position, target) > 1e-4)
+            {
+                transform.position += direction * _speed * Time.deltaTime;
+                yield return null;
+            }
+        }
+    }
+}
