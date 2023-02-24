@@ -24,7 +24,7 @@ public class PathMovement : MonoBehaviour, IMovement
         foreach (var target in path)
         {
             var direction = (target - transform.position).normalized;
-            while (Vector3.Distance(transform.position, target) > 1e-4)
+            while (Vector3.Distance(transform.position, target) > 1e-2)
             {
                 transform.position += direction * _speed * Time.deltaTime;
                 yield return null;

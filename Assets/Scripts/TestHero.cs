@@ -22,10 +22,7 @@ public class TestHero : MonoBehaviour
             if (Physics.Raycast(ray, out var hit))
             {
                 var target = new Vector3((int)hit.point.x, 0, (int)hit.point.z) + new Vector3(Mathf.Sign(hit.point.x) * 1, 0, Mathf.Sign(hit.point.z) * 1) / 2;
-                foreach (var point in _pathfinder.Find(transform.position, target))
-                {
-                    Debug.Log(point);
-                }
+                _movement.Move(target);
             }
         }
     }
