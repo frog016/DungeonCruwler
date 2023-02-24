@@ -21,8 +21,7 @@ public class TestHero : MonoBehaviour
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out var hit))
             {
-                var target = new Vector3((int)hit.point.x, 0, (int)hit.point.z) + new Vector3(Mathf.Sign(hit.point.x) * 1, 0, Mathf.Sign(hit.point.z) * 1) / 2;
-                _movement.Move(target);
+                _movement.Move(hit.point);
             }
         }
     }

@@ -7,6 +7,7 @@ public class PathMovement : MonoBehaviour, IMovement
     [SerializeField] private float _speed;
 
     private IPathfinder _pathfinder;
+    private Coroutine _moveCoroutine;
 
     public void Constructor(IPathfinder pathfinder)
     {
@@ -15,8 +16,11 @@ public class PathMovement : MonoBehaviour, IMovement
 
     public void Move(Vector3 to)
     {
+        if (_moveCoroutine != null)
+            StopCoroutine(_moveCoroutine);
+
         var path = _pathfinder.Find(transform.position, to);
-        StartCoroutine(MoveCoroutine(path));
+        _moveCoroutine = StartCoroutine(MoveCoroutine(path));
     }
 
     private IEnumerator MoveCoroutine(IEnumerable<Vector3> path)

@@ -5,33 +5,39 @@ using UnityEngine;
 
 public class Map : MonoBehaviour, ITileableMap
 {
-    [SerializeField] private Vector2Int _size;
+    [SerializeField] private Grid _grid;
 
-    private Dictionary<Vector2, ITile> _map;
-
-    private void Awake()
-    {
-        _map = CreateMap();
-    }
+    private readonly Dictionary<Vector3Int, ITile> _map = new Dictionary<Vector3Int, ITile>();
 
     public void Add(ITile tile)
     {
-        InBoundaries(tile.Position, out var position);
+        var position = ToCellPosition(tile.Position);
         _map[position] = tile;
     }
 
     public void Remove(ITile tile)
     {
-        InBoundaries(tile.Position, out var position);
-        _map[position] = null;
+        var position = ToCellPosition(tile.Position);
+        if (!_map.ContainsKey(position))
+            throw new ArgumentException($"Map doesn't contains tile {tile}.");
+
+        _map.Remove(position);
+    }
+
+    public ITile GetTile(Vector3 tilePosition)
+    {
+        var position = ToCellPosition(tilePosition);
+        return _map[position];
     }
 
     public IEnumerable<ITile> GetNeighbors(Vector3 tilePosition)
     {
-        var tileCenter = new Vector3((int)tilePosition.x, 0, (int)tilePosition.z) + new Vector3(1, 0, 1) / 2;
-        InBoundaries(tilePosition, out var position);
-        foreach (var direction in VectorExtensions.Directions2)
-            if (_map.TryGetValue(position + direction, out var neighbor) && neighbor != null)
+        var position = ToCellPosition(tilePosition);
+        var directions = VectorExtensions.Directions2Int
+            .Select(vector => vector.ToVector3Int());
+
+        foreach (var direction in directions)
+            if (_map.TryGetValue(position + direction, out var neighbor))
                 yield return neighbor;
     }
 
@@ -42,30 +48,8 @@ public class Map : MonoBehaviour, ITileableMap
             .AsEnumerable();
     }
 
-    private Dictionary<Vector2, ITile> CreateMap()
+    private Vector3Int ToCellPosition(Vector3 position)
     {
-        var center = transform.position;
-        var leftBottom = center - _size.ToVector3Plane() + new Vector3(1, 0, 1) / 2;
-
-        var result = new Dictionary<Vector2, ITile>();
-        for (var x = leftBottom.x; x < _size.x; x++)
-            for (var z = leftBottom.z; z < _size.y; z++)
-                result.Add(new Vector2(x, z), null);
-
-        return result;
-    }
-
-    private void InBoundaries(Vector3 tilePosition, out Vector2 position)
-    {
-        position = tilePosition.ToVector2Plane();
-        if (!_map.ContainsKey(position))
-            throw new ArgumentException($"Tile with position {tilePosition} out of boundaries.");
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, _size.ToVector3Plane());
-        Gizmos.color = Color.white;
+        return _grid.WorldToCell(position);
     }
 }

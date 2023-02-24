@@ -13,38 +13,40 @@ public class TileablePathfinder : IPathfinder
 
     public IEnumerable<Vector3> Find(Vector3 start, Vector3 end)
     {
-        var routs = new Dictionary<Vector3, Vector3?> { [start] = null };
-        var queue = new Queue<Vector3>();
-        queue.Enqueue(start);
+        var startTile = _map.GetTile(start);
+        var endTile = _map.GetTile(end);
+
+        var routs = new Dictionary<ITile, ITile> { [startTile] = null };
+        var queue = new Queue<ITile>();
+        queue.Enqueue(startTile);
 
         while (queue.Count != 0)
         {
             var current = queue.Dequeue();
-            foreach (var neighbor in _map.GetNeighbors(current))
+            foreach (var neighbor in _map.GetNeighbors(current.Position))
             {
-                var next = neighbor.Position;
-                if (routs.ContainsKey(next)) 
+                if (routs.ContainsKey(neighbor)) 
                     continue;
 
-                routs[next] = current;
-                queue.Enqueue(next);
+                routs[neighbor] = current;
+                queue.Enqueue(neighbor);
             }
 
-            if (routs.ContainsKey(end)) 
+            if (routs.ContainsKey(endTile)) 
                 break;
         }
 
-        return CreatePath(routs, end)
+        return CreatePath(routs, endTile)
             .Reverse();
     }
 
-    private static IEnumerable<Vector3> CreatePath(IReadOnlyDictionary<Vector3, Vector3?> routs, Vector3 end)
+    private static IEnumerable<Vector3> CreatePath(IReadOnlyDictionary<ITile, ITile> routs, ITile endTile)
     {
-        var pathItem = new Vector3?(end);
+        var pathItem = endTile;
         while (pathItem != null)
         {
-            yield return pathItem.Value;
-            pathItem = routs[pathItem.Value];
+            yield return pathItem.Position;
+            pathItem = routs[pathItem];
         }
     }
 }
