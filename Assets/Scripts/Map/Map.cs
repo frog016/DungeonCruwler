@@ -28,9 +28,10 @@ public class Map : MonoBehaviour, ITileableMap
 
     public IEnumerable<ITile> GetNeighbors(Vector3 tilePosition)
     {
+        var tileCenter = new Vector3((int)tilePosition.x, 0, (int)tilePosition.z) + new Vector3(1, 0, 1) / 2;
         InBoundaries(tilePosition, out var position);
         foreach (var direction in VectorExtensions.Directions2)
-            if (_map.TryGetValue(position + direction, out var neighbor))
+            if (_map.TryGetValue(position + direction, out var neighbor) && neighbor != null)
                 yield return neighbor;
     }
 
@@ -44,12 +45,12 @@ public class Map : MonoBehaviour, ITileableMap
     private Dictionary<Vector2, ITile> CreateMap()
     {
         var center = transform.position;
-        var leftBottom = center - _size.ToVector3Plane();
+        var leftBottom = center - _size.ToVector3Plane() + new Vector3(1, 0, 1) / 2;
 
         var result = new Dictionary<Vector2, ITile>();
         for (var x = leftBottom.x; x < _size.x; x++)
-            for (var y = leftBottom.z; y < _size.y; y++)
-                result.Add(new Vector2(x, y), null);
+            for (var z = leftBottom.z; z < _size.y; z++)
+                result.Add(new Vector2(x, z), null);
 
         return result;
     }
