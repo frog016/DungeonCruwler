@@ -1958,6 +1958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1694853349}
+  - component: {fileID: 1694853353}
   - component: {fileID: 1694853352}
   - component: {fileID: 1694853351}
   m_Layer: 0
@@ -2006,6 +2007,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f25d20bc949184543bb2367cd11b9a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1694853353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694853348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bf60c4c8909d43b7d6b84db760d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1695043494
@@ -2210,6 +2223,9 @@ MonoBehaviour:
   _camera: {fileID: 1409662121}
   _pathMovement: {fileID: 1694853351}
   _characterInputHandler: {fileID: 1694853352}
+  _character: {fileID: 1694853353}
+  _modifiers:
+  - {fileID: 11400000, guid: 7ea1808d81b04b049b83727175468ef3, type: 2}
 --- !u!1001 &1708393302
 PrefabInstance:
   m_ObjectHideFlags: 0
