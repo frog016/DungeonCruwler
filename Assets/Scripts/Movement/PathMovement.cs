@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PathMovement : MonoBehaviour, IMovement
@@ -25,10 +26,10 @@ public class PathMovement : MonoBehaviour, IMovement
 
     private IEnumerator MoveCoroutine(IEnumerable<Vector3> path)
     {
-        foreach (var target in path)
+        foreach (var target in path.Skip(1))
         {
             var direction = (target - transform.position).normalized;
-            while (Vector3.Distance(transform.position, target) > 1e-2)
+            while (Vector3.Distance(transform.position, target) > 1e-1)
             {
                 transform.position += direction * _speed * Time.deltaTime;
                 yield return null;

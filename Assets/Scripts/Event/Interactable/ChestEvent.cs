@@ -2,7 +2,7 @@
 
 public class ChestEvent : InteractableEventBehaviour
 {
-    public override void Interact(Character character)
+    protected override void OnInteract(Character character)
     {
         Debug.Log($"{character} found chest with gold.");
     }
