@@ -6,6 +6,6 @@ public class BattleEvent : InteractableEventBehaviour
 
     protected override void OnInteract(Character character)
     {
-        _battleLauncher.Launch();
+        _battleLauncher.Launch(this);
     }
 }

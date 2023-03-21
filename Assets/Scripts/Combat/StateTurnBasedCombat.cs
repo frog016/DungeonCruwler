@@ -6,6 +6,7 @@ using UnityEngine;
 public class StateTurnBasedCombat : MonoBehaviour, ITurnBasedCombat
 {
     public event Action<CombatStateMachine[]> TurnStarted;
+    public event Action<CombatStateMachine> CombatEnded;
 
     private ICombatTurnPlanner _turnPlanner;
     private CombatStateMachine[] _stateMachines;
@@ -39,6 +40,8 @@ public class StateTurnBasedCombat : MonoBehaviour, ITurnBasedCombat
 
             yield return null;
         }
+
+        CombatEnded?.Invoke(_stateMachines.First(machine => machine.Health != 0));
     }
 
     private CombatStateMachine[] GetSequence()

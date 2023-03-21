@@ -1,4 +1,4 @@
 ﻿public interface IEventLauncher
 {
-    void Launch();
+    void Launch(InteractableEventBehaviour interactableEvent);
 }

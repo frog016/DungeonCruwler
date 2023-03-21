@@ -1,19 +1,9 @@
 ﻿using UnityEngine;
 
-public class Level : MonoBehaviour
+public abstract class Level<TData> : MonoBehaviour
 {
-    [SerializeField] private Camera _activeCamera;
-    private CameraSwitcher _switcher;
+    [SerializeField] protected Camera _activeCamera;
 
-    public virtual void Load(CameraSwitcher switcher)
-    {
-        _switcher = switcher;
-        _switcher.Switch(_activeCamera);
-    }
-
-    public virtual void Unload()
-    {
-        _switcher.ReturnPrevious();
-        Destroy(gameObject);
-    }
+    public abstract void Load(TData data);
+    public abstract void Unload();
 }
