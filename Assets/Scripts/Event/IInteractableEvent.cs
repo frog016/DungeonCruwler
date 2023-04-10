@@ -1,4 +1,7 @@
-﻿public interface IInteractableEvent
+﻿using System;
+
+public interface IInteractableEvent
 {
-    void Interact(Character character);
+    event Action<ICharacter> Interacted;
+    void Interact(ICharacter character);
 }

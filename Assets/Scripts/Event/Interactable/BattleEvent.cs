@@ -4,8 +4,9 @@ public class BattleEvent : InteractableEventBehaviour
 {
     [SerializeField] private BattleLauncher _battleLauncher;
 
-    protected override void OnInteract(Character character)
+    protected override bool OnInteract(ICharacter character)
     {
         _battleLauncher.Launch(this);
+        return true;
     }
 }

@@ -1,15 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class InteractableEventBehaviour : MonoBehaviour, IInteractableEvent
 {
     [SerializeField] private bool _destroyOnInteract;
 
-    public void Interact(Character character)
+    public event Action<ICharacter> Interacted;
+    public bool DestroyOnInteract { get => _destroyOnInteract; set => _destroyOnInteract = value; }
+
+    public void Interact(ICharacter character)
     {
-        OnInteract(character);
-        if (_destroyOnInteract)
+        if (OnInteract(character))
+            Interacted?.Invoke(character);
+
+        if (DestroyOnInteract)
             Destroy(gameObject);
     }
 
-    protected abstract void OnInteract(Character character);
+    protected abstract bool OnInteract(ICharacter character);
 }

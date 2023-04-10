@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Character))]
 public class EventActivator : MonoBehaviour
 {
-    private Character _character;
+    private ICharacter _character;
 
-    private void Awake()
+    public void Constructor(ICharacter character)
     {
-        _character = GetComponent<Character>();
+        _character = character;
     }
 
     private void OnTriggerEnter(Collider otherCollider)
