@@ -10,8 +10,9 @@ public static class LinqExtensions
         foreach (var element in sequence)
         {
             action?.Invoke(element);
-            yield return element;
         }
+
+        return sequence;
     }
 
     public static IEnumerable<T> ApplyLazy<T>(this IEnumerable<T> enumerable, Action<T> action)
