@@ -28,4 +28,9 @@ public static class LinqExtensions
     {
         return matrix.Cast<T>();
     }
+
+    public static HashSet<T> ToHashSet<T>(IEnumerable<T> collection)
+    {
+        return new HashSet<T>(collection);
+    }
 }

@@ -9,14 +9,14 @@ public class TilableVisibleArea
         var position = map.WorldToLocal(discoverer.transform.position);
 
         map.GetTile(discoverer.transform.position).Visibility = VisibilityType.Discovered;
-        var tilesInArea = GetTilesInArea(map, position, discoverer.ViewRadius, discoverer.RaysCount).ToArray();
+        var tilesInArea = GetTilesInArea(map, position, discoverer.ViewRadius, discoverer.RaysCount).ToHashSet();
         foreach (var tile in tilesInArea)
             tile.Visibility = VisibilityType.Discovered;
     }
 
     private static IEnumerable<ITile> GetTilesInArea(ITileableMap map, Vector3Int position, int radius, int raysCount)
     {
-        var stepAngle = (360f / raysCount) * Mathf.Deg2Rad;
+        var stepAngle = 360f / raysCount;
         var endRayPoint = position + Vector3Int.forward * radius;
 
         yield return map.GetTile(map.LocalToWorld(position));
@@ -32,20 +32,15 @@ public class TilableVisibleArea
             foreach (var tile in intersectedTiles)
                 yield return tile;
 
-            endRayPoint = position + (endRayPoint - position).RotateY(stepAngle);
+            endRayPoint = position + (endRayPoint - position).RotateY(stepAngle * Mathf.Deg2Rad);
         }
     }
 
     private static IEnumerable<Vector3Int> LaunchRay(Vector3Int from, Vector3Int to)
     {
         var delta = to - from;
-        //var step = new Vector3(Mathf.Sign(delta.x), Mathf.Sign(delta.y), Mathf.Sign(delta.z)).ToVector3Int();
-        //delta = delta.Absolute();
         var absoluteDelta = delta.Absolute();
-
         var acceleration = 0;
-        //var acceleration = delta.x - delta.z;
-
         if (absoluteDelta.x >= absoluteDelta.z)
         {
             var z = from.z;
@@ -56,7 +51,7 @@ public class TilableVisibleArea
                 yield return new Vector3Int(x, 0, z);
 
                 acceleration += absoluteDelta.z;
-                if (acceleration < absoluteDelta.x) 
+                if (acceleration < absoluteDelta.x)
                     continue;
 
                 acceleration -= absoluteDelta.x;
@@ -80,22 +75,5 @@ public class TilableVisibleArea
                 x += direction;
             }
         }
-        //var position = from;
-        ////while (from.x != to.x || from.y != to.y)
-        //{
-        //    if (2 * acceleration > -delta.z)
-        //    {
-        //        acceleration -= delta.z;
-        //        position.x += step.x;
-        //    }
-
-        //    if (2 * acceleration < delta.x)
-        //    {
-        //        acceleration += delta.x;
-        //        position.z += step.z;
-        //    }
-
-        //    yield return position;
-        //}
     }
 }

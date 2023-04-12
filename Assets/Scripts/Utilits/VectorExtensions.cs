@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using UnityEngine;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
 
 public static class VectorExtensions
 {
@@ -59,6 +56,13 @@ public static class VectorExtensions
         var x = vector.x * Mathf.Cos(radiansAngle) - vector.z * Mathf.Sin(radiansAngle);
         var z = vector.x * Mathf.Sin(radiansAngle) + vector.z * Mathf.Cos(radiansAngle);
         return new Vector3Int(Mathf.RoundToInt(x), vector.y, Mathf.RoundToInt(z));
+    }
+
+    public static Vector3 RotateY(this Vector3 vector, float radiansAngle)
+    {
+        var x = vector.x * Mathf.Cos(radiansAngle) - vector.z * Mathf.Sin(radiansAngle);
+        var z = vector.x * Mathf.Sin(radiansAngle) + vector.z * Mathf.Cos(radiansAngle);
+        return new Vector3(x, vector.y, z);
     }
 
     public static Vector3 RotateInPlane(this Vector3 vector, float radiansAngle)

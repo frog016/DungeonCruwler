@@ -400,8 +400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8a9b2a321af8e488153dcf6f0df958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _viewRadius: 1
-  _raysCount: 4
+  _viewRadius: 2
+  _raysCount: 12
   _sphereCollider: {fileID: 4029292925368806269}
 --- !u!54 &8280273103767063764
 Rigidbody:
@@ -449,5 +449,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 2
   m_Center: {x: 0, y: 1, z: 0}

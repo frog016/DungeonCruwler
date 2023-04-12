@@ -5,9 +5,10 @@ public class FogDiscoverer : MonoBehaviour
     [SerializeField] private int _viewRadius;
     [SerializeField] private int _raysCount;
     [SerializeField] private SphereCollider _sphereCollider;
+    [SerializeField] private Map _map;
 
+    public int RaysCount => _raysCount;
     public int ViewRadius { get => _viewRadius; set => _viewRadius = value; }
-    public int RaysCount { get => _raysCount; set => _raysCount = value; }
 
     private void OnValidate()
     {

@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class TestMapBuilder : MonoBehaviour
 {
-    [SerializeField] private Tile3D[] _tiles;
+    [SerializeField] private Transform _tilesRoot;
     [SerializeField] private Map _map;
 
     private void Awake()
     {
-        _map.Constructor(_tiles);
+        var tiles = FindAllTilesIn(_tilesRoot);
+        _map.Constructor(tiles);
+    }
+
+    private static ITile[] FindAllTilesIn(Transform tilesRoot)
+    {
+        return tilesRoot.GetComponentsInChildren<ITile>();
     }
 }
