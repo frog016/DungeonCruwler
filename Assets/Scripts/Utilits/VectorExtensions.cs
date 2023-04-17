@@ -31,9 +31,14 @@ public static class VectorExtensions
         return new Vector3Int(vector.x, vector.y);
     }
     
-    public static Vector3Int ToVector3Int(this Vector3 vector)
+    public static Vector3Int ToVector3IntUp(this Vector3 vector)
     {
         return new Vector3Int(Mathf.CeilToInt(vector.x), Mathf.CeilToInt(vector.y), Mathf.CeilToInt(vector.z));
+    }
+
+    public static Vector3Int ToVector3IntDown(this Vector3 vector)
+    {
+        return new Vector3Int(Mathf.FloorToInt(vector.x), Mathf.FloorToInt(vector.y), Mathf.FloorToInt(vector.z));
     }
 
     public static Vector3Int ToVector3IntPlane(this Vector2Int vector)

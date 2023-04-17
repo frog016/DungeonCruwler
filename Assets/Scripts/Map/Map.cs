@@ -94,7 +94,7 @@ public class Map : MonoBehaviour, ITileableMap
         Center = (maxTilePosition + minTilePosition) / 2f;
         Size = (maxTilePosition - minTilePosition)
         .Absolute()
-        .ToVector3Int()
+        .ToVector3IntUp()
         + Vector3Int.one;
     }
 

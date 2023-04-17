@@ -401,7 +401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewRadius: 2
-  _raysCount: 12
   _sphereCollider: {fileID: 4029292925368806269}
 --- !u!54 &8280273103767063764
 Rigidbody:

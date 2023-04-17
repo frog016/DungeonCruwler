@@ -57,8 +57,8 @@ public class FogRenderer : MonoBehaviour
         {
             for (var x = 0; x < textureSize.x; x++)
             {
-                var visibility = 1 - (int)visibilityMap[y * textureSize.y + x];
-                colors[y * textureSize.y + x] = new Color(
+                var visibility = 1 - (int)visibilityMap[y * textureSize.x + x];
+                colors[y * textureSize.x + x] = new Color(
                     visibility, visibility,
                     visibility, visibility * alpha);
             }

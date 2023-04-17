@@ -14,11 +14,11 @@ public class FogOfWar : MonoBehaviour
 
     private float _refreshRateTimer;
     private FogRenderer _fog;
-    private TilableVisibleArea _visibleArea;
+    private TileableVisibleArea _visibleArea;
 
     private void Start()
     {
-        _visibleArea = new TilableVisibleArea();
+        _visibleArea = new TileableVisibleArea(_map);
         InitializeFog();
         ForceUpdateFog();
     }
@@ -35,7 +35,7 @@ public class FogOfWar : MonoBehaviour
 
         ResetTileVisibility();
         foreach (var discoverer in _fogDiscoverers)
-            _visibleArea.DiscoverTiles(_map, discoverer);
+            _visibleArea.DiscoverTiles(discoverer.transform.position, discoverer.ViewRadius);
 
         _fog.UpdateTargetTexture(GetVisibilityMap());
         _fog.UpdateBufferTexture();
@@ -58,7 +58,7 @@ public class FogOfWar : MonoBehaviour
     {
         ResetTileVisibility();
         foreach (var discoverer in _fogDiscoverers)
-            _visibleArea.DiscoverTiles(_map, discoverer);
+            _visibleArea.DiscoverTiles(discoverer.transform.position, discoverer.ViewRadius);
 
         _fog.UpdateTargetTexture(GetVisibilityMap());
         Graphics.CopyTexture(_fog.TargetTexture, _fog.BufferTexture);
