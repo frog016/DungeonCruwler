@@ -21,12 +21,12 @@ public class FogDiscoverer : MonoBehaviour
     private void OnTriggerEnter(Collider otherCollider)
     {
         if (otherCollider.TryGetComponent<IVisible>(out var visible))
-            StartCoroutine(WaitUntilPositionDiscovered(otherCollider.transform.position, visible));
+           StartCoroutine(WaitUntilPositionDiscovered(otherCollider.transform.position, visible));
     }
 
     private void OnTriggerExit(Collider otherCollider)
     {
-        if (otherCollider.TryGetComponent<IVisible>(out var visible))
+        if (otherCollider.TryGetComponent<IVisible>(out var visible)) 
             visible.Hide();
     }
 
