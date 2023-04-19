@@ -2,7 +2,7 @@
 
 public interface IEffectApplier
 {
-    IEnumerable<ITickableEffect> Effects { get; }
-    void ApplyEffect(ITickableEffect tickableEffect);
-    void RemoveEffect(ITickableEffect tickableEffect);
+    IEnumerable<IEffect> Effects { get; }
+    void ApplyEffect(IEffect temporaryEffect);
+    void RemoveEffect(IEffect temporaryEffect);
 }

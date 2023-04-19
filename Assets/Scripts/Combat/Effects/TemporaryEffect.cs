@@ -1,27 +1,20 @@
-﻿using System;
-
-public abstract class TemporaryEffect<T> : ITickableEffect where T : ICharacter
+﻿public abstract class TemporaryEffect : ITemporaryEffect
 {
-    protected readonly T _target;
+    public bool Applied { get; private set; }
+    public int Duration { get; set; }
 
-    private int _duration;
+    protected readonly ICharacter _target;
 
-    protected TemporaryEffect(int duration, T target)
+    protected TemporaryEffect(int duration, ICharacter target)
     {
-        _duration = duration;
+        Duration = duration;
         _target = target;
     }
 
-    public int Tick()
+    public virtual void Apply()
     {
-        UseEffect();
-        _duration = Math.Max(_duration - 1, 0);
-        if (_duration == 0)
-            End();
-
-        return _duration;
+        Applied = true;
     }
 
-    protected abstract void UseEffect();
-    protected abstract void End();
+    public abstract void Remove();
 }

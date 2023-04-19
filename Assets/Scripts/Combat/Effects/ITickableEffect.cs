@@ -1,4 +1,3 @@
-﻿public interface ITickableEffect
+﻿public interface ITickableEffect : IEffect
 {
-    int Tick();
 }

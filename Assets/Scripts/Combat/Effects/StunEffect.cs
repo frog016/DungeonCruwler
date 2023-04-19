@@ -1,17 +1,18 @@
-﻿public class StunEffect<T> : TemporaryEffect<T> where T : ICharacter
+﻿public class StunEffect : TemporaryEffect
 {
     //+1 is to keep the stun going throughout the turn.
     //If duration = 1, then the stun will tick, after which it will immediately disappear and have no effect.
-    public StunEffect(int duration, T target) : base(duration + 1, target)
+    public StunEffect(int duration, ICharacter target) : base(duration + 1, target)
     {
     }
 
-    protected override void UseEffect()
+    public override void Apply()
     {
+        base.Apply();
         _target.Interrupted = true;
     }
 
-    protected override void End()
+    public override void Remove()
     {
         _target.Interrupted = false;
     }

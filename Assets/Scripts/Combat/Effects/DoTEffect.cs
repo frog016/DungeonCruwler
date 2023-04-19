@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 
-public class DoTEffect<T> : TemporaryEffect<T> where T : ICharacter
+public class DoTEffect : ITickableEffect
 {
-    private readonly int _damage;
+    public int Duration { get; set; }
 
-    public DoTEffect(int duration, float damage, T target) : base(duration, target)
+    private readonly int _damage;
+    private readonly ICharacter _target;
+
+    public DoTEffect(int duration, int damage, ICharacter target)
     {
-        _damage = Mathf.FloorToInt(damage);
+        Duration = duration;
+        _damage = damage;
+        _target = target;
     }
 
-    protected override void UseEffect()
+    public void Apply()
     {
         _target.ApplyDamage(_damage);
         Debug.Log($"{_target} applied {_damage} damage from DoT tick.");
-    }
-
-    protected override void End()
-    {
     }
 }

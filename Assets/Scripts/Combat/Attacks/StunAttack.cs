@@ -15,7 +15,7 @@ public class StunAttack : Attack
 
     protected override void UseEffect<T>(T owner, T target, DamageArgs damage)
     {
-        var effect = new StunEffect<T>(1, target);
+        var effect = new StunEffect(1, target);
         target.ApplyEffect(effect);
     }
 }

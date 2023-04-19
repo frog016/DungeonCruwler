@@ -1340,7 +1340,7 @@ GameObject:
   - component: {fileID: 5838612985610468090}
   - component: {fileID: 5176651939325304665}
   - component: {fileID: 5838612985610468091}
-  - component: {fileID: 5838612985610468089}
+  - component: {fileID: 8161981068830740060}
   m_Layer: 0
   m_Name: Combat
   m_TagString: Untagged
@@ -1404,7 +1404,7 @@ MonoBehaviour:
   _stateMachines:
   - {fileID: 5838612984555020507}
   - {fileID: 5838612984093674747}
---- !u!114 &5838612985610468089
+--- !u!114 &8161981068830740060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5838612985610468094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e3b9c94448cd4a48a89ca24c5c80a4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 27d74e79354e5a54399b887676fbf39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5838612985663973582

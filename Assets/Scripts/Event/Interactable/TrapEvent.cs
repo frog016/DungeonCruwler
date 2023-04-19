@@ -3,10 +3,15 @@
 public class TrapEvent : HiddenInteractableEvent<TrapEvent>
 {
     [SerializeField] private TrapData _data;
-    [SerializeField] private MapTickableEffect _effect;
+    [SerializeField] private ScriptableObject _effect;
     
     public TrapData TrapData => _data;
-    public ITickableEffect Effect => _effect;
+    public IEffect Effect { get; private set; }
+
+    private void OnValidate()
+    {
+        Effect = (IEffect)_effect;
+    }
 
     protected override void Awake()
     {

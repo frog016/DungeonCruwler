@@ -7,9 +7,9 @@ public class DamageableUnit : MonoBehaviour, IDamageable
     public int Health { get; protected set; }
     public int MaxHealth { protected set; get; }
     public event Action<int> HealthChanged;
-    public IEnumerable<ITickableEffect> Effects => _effects;
+    public IEnumerable<IEffect> Effects => _effects;
 
-    private readonly List<ITickableEffect> _effects = new List<ITickableEffect>();
+    private readonly List<IEffect> _effects = new List<IEffect>();
 
     public void ApplyDamage(int damage)
     {
@@ -21,14 +21,14 @@ public class DamageableUnit : MonoBehaviour, IDamageable
             Die();
     }
 
-    public void ApplyEffect(ITickableEffect tickableEffect)
+    public void ApplyEffect(IEffect temporaryEffect)
     {
-        _effects.Add(tickableEffect);
+        _effects.Add(temporaryEffect);
     }
 
-    public void RemoveEffect(ITickableEffect tickableEffect)
+    public void RemoveEffect(IEffect temporaryEffect)
     {
-        _effects.Remove(tickableEffect);
+        _effects.Remove(temporaryEffect);
     }
 
     private void Die()

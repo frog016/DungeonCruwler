@@ -17,7 +17,7 @@ public class DamageOverTimeAttack : Attack
     {
         const float multiplier = 0.25f;
         var duration = damage.Damage / 2;
-        var effect = new DoTEffect<T>(duration, multiplier * damage.Damage, target);
+        var effect = new DoTEffect(duration, Mathf.FloorToInt(multiplier * damage.Damage), target);
         target.ApplyEffect(effect);
     }
 }

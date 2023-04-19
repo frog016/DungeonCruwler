@@ -7,6 +7,8 @@ public static class Dice
     public const int D20 = 20;
     public const int MinimalValue = 1;
 
+    private static int _modifier;
+
     public static int Roll(Type diceType)
     {
         return Roll((int)diceType);
@@ -14,7 +16,8 @@ public static class Dice
 
     public static int Roll(int maxValue)
     {
-        return Random.Range(MinimalValue, maxValue + 1);
+        var rolledValue = Random.Range(MinimalValue, maxValue + 1);
+        return Mathf.Max(0, rolledValue + _modifier);
     }
 
     public static int RollD4()
@@ -25,6 +28,11 @@ public static class Dice
     public static int RollD20()
     {
         return Roll(D20);
+    }
+
+    public static void ChangeModifier(int value)
+    {
+        _modifier += value;
     }
 
     public enum Type
