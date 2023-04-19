@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class BattleLevel : Level<BattleLevel.Data>
+﻿public class BattleLevel : Level<BattleLevel.Data>
 {
     private Data _data;
 
@@ -14,7 +12,6 @@ public class BattleLevel : Level<BattleLevel.Data>
     {
         _data.CameraSwitcher.ReturnPrevious();
         _data.MainLevel.Load(null);
-        Destroy(_data.BattleEvent.gameObject);
         Destroy(gameObject);
     }
 
@@ -22,9 +19,9 @@ public class BattleLevel : Level<BattleLevel.Data>
     {
         public readonly MainLevel MainLevel;
         public readonly CameraSwitcher CameraSwitcher;
-        public readonly InteractableEventBehaviour BattleEvent;
+        public readonly IInteractableEvent BattleEvent;
 
-        public Data(CameraSwitcher cameraSwitcher, MainLevel mainLevel, InteractableEventBehaviour battleEvent)
+        public Data(CameraSwitcher cameraSwitcher, MainLevel mainLevel, IInteractableEvent battleEvent)
         {
             CameraSwitcher = cameraSwitcher;
             MainLevel = mainLevel;

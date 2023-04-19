@@ -14,7 +14,7 @@ public class FogOfWar : MonoBehaviour
 
     private float _refreshRateTimer;
     private FogRenderer _fog;
-    private ShadowCastingVisibleArea _visibleArea;
+    private IVisibleArea _visibleArea;
 
     private void Start()
     {

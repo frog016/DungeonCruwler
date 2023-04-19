@@ -7,6 +7,7 @@ public class HiddenObject : MonoBehaviour, IHiddenObject
 
     public event Action Discovered;
     public bool Detected { get; private set; }
+    public int DetectionClass { get => _detectionClass; set => _detectionClass = value; }
 
     private bool _tried;
 
@@ -20,7 +21,7 @@ public class HiddenObject : MonoBehaviour, IHiddenObject
         if (TryDiscover(review))
         {
             Detected = true;
-            Debug.Log($"Event ({gameObject}) with detection class {_detectionClass} has been detected.");
+            Debug.Log($"Event ({gameObject}) with detection class {DetectionClass} has been detected.");
             Discovered?.Invoke();
         }
         else
@@ -33,6 +34,6 @@ public class HiddenObject : MonoBehaviour, IHiddenObject
 
     private bool TryDiscover(int review)
     {
-        return Dice.RollD20() + review >= _detectionClass;
+        return Dice.RollD20() + review >= DetectionClass;
     }
 }
