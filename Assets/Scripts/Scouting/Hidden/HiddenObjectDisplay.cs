@@ -11,6 +11,7 @@ public class HiddenObjectDisplay : MonoBehaviour
     {
         _hiddenObject = GetComponent<IHiddenObject>();
         _hiddenObject.Discovered += Show;
+        _model.enabled = false;
     }
 
     private void OnDestroy()

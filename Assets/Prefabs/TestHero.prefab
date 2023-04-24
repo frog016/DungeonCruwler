@@ -202,6 +202,8 @@ GameObject:
   - component: {fileID: 4679551730997365174}
   - component: {fileID: 4679551730997365168}
   - component: {fileID: 4679551730997365183}
+  - component: {fileID: 7148169013765516155}
+  - component: {fileID: 7788223492985035100}
   m_Layer: 0
   m_Name: TestHero
   m_TagString: Untagged
@@ -271,6 +273,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+--- !u!114 &7148169013765516155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679551730997365180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e967e6531a2217f448a630501155264a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 0
+--- !u!114 &7788223492985035100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679551730997365180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f8f0589badec824d813929bc3c1f945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _round: {fileID: 0}
 --- !u!1 &4679551732562848492
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +360,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e373e0d3859bce347baf15757b034f17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -402,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _viewRadius: 2
   _sphereCollider: {fileID: 4029292925368806269}
+  _map: {fileID: 0}
 --- !u!54 &8280273103767063764
 Rigidbody:
   m_ObjectHideFlags: 0
