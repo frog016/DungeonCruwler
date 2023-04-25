@@ -4,14 +4,14 @@ public class CompositionRoot : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private Map _map;
-    [SerializeField] private Camera _camera;
-    [SerializeField] private PathMovement _pathMovement;
-    [SerializeField] private PlayerMovementHandler _playerMovementHandler;
+    [SerializeField] private PathMovement[] _pathMovements;
 
     [Header("Player")]
     [SerializeField] private Character _player;
     [SerializeField] private EventActivator _activator;
     [SerializeField] private HiddenObjectDetector _detector;
+    [SerializeField] private Camera _camera;
+    [SerializeField] private PlayerMovementHandler _playerMovementHandler;
 
     [Header("Round")]
     [SerializeField] private Round _round;
@@ -32,14 +32,15 @@ public class CompositionRoot : MonoBehaviour
     private void BindMovement()
     {
         var pathfinder = new TileablePathfinder(_map);
-        _pathMovement.Constructor(pathfinder);
-        _playerMovementHandler.Constructor(_camera);
+        foreach (var pathMovement in _pathMovements)
+            pathMovement.Constructor(pathfinder);
     }
 
     private void BindPlayer()
     {
         _activator.Constructor(_player);
         _detector.Constructor(_player);
+        _playerMovementHandler.Constructor(_camera);
     }
 
     private void BindRound()

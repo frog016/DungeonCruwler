@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(ICharacter))]
+[RequireComponent(typeof(IStatsUser))]
 public class Energy : MonoBehaviour
 {
     public int CurrentAmount { get; private set; }
@@ -9,9 +9,9 @@ public class Energy : MonoBehaviour
 
     private void Start()
     {
-        var character = GetComponent<ICharacter>();
+        var stats = GetComponent<IStatsUser>();
 
-        _limit = character.Stats.GetStat(StatType.Speed);
+        _limit = stats.Stats.GetStat(StatType.Speed);
         CurrentAmount = _limit;
     }
 

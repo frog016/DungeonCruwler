@@ -12,8 +12,9 @@ public class EventActionView : MonoBehaviour
 
     public void Initialize<T>(T interactableEvent, IEventAction<T> action, ICharacter target) where T : IInteractableEvent
     {
+        Debug.Log("Initialize Action Button");
         _text.text = action.ToString();
-        _button.onClick.RemoveAllListeners();
+        //_button.onClick.RemoveAllListeners();
         _button.onClick.AddListener(() =>
         {
             action.Invoke(interactableEvent, target);
