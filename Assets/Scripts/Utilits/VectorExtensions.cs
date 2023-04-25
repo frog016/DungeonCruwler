@@ -21,6 +21,14 @@ public static class VectorExtensions
         Vector2Int.left
     };
 
+    public static Vector3[] Directions3Y = new Vector3[]
+    {
+        Vector3.left,
+        Vector3.right, 
+        Vector3.forward,
+        Vector3.back, 
+    };
+
     public static Vector3 ToVector3(this Vector3Int vector)
     {
         return new Vector3(vector.x, vector.y, vector.z);

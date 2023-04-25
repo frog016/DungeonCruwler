@@ -1,39 +1,55 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PathMovement : MonoBehaviour, IMovement
+public class PathMovement : MonoBehaviour, IPathMovement
 {
     [SerializeField] private float _speed;
 
+    private Path _path;
     private IPathfinder _pathfinder;
-    private Coroutine _moveCoroutine;
 
     public void Constructor(IPathfinder pathfinder)
     {
         _pathfinder = pathfinder;
     }
 
-    public void Move(Vector3 to)
+    public void SetDestination(Vector3 destination, int limit)
     {
-        if (_moveCoroutine != null)
-            StopCoroutine(_moveCoroutine);
+        var points = _pathfinder
+            .Find(transform.position, destination)
+            .Skip(1)
+            .Take(limit)
+            .ToArray();
 
-        var path = _pathfinder.Find(transform.position, to);
-        _moveCoroutine = StartCoroutine(MoveCoroutine(path));
+        _path = new Path(points);
     }
 
-    private IEnumerator MoveCoroutine(IEnumerable<Vector3> path)
+    public IEnumerator MoveNext()
     {
-        foreach (var target in path.Skip(1))
+        return MoveToPointByDeltaIndex(1);
+    }
+
+    public IEnumerator MoveBack()
+    {
+        return MoveToPointByDeltaIndex(-1);
+    }
+
+    private IEnumerator MoveToPointByDeltaIndex(int deltaIndex)
+    {
+        if (!_path.TryGetCurrent(deltaIndex, out var point))
+            yield break;
+
+        yield return MoveCoroutine(point);
+    }
+
+    private IEnumerator MoveCoroutine(Vector3 target)
+    {
+        var direction = (target - transform.position).normalized;
+        while (Vector3.Distance(transform.position, target) > 1e-1)
         {
-            var direction = (target - transform.position).normalized;
-            while (Vector3.Distance(transform.position, target) > 1e-1)
-            {
-                transform.position += direction * _speed * Time.deltaTime;
-                yield return null;
-            }
+            transform.position += direction * _speed * Time.deltaTime;
+            yield return null;
         }
     }
 }

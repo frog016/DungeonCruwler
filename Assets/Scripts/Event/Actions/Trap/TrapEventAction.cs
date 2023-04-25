@@ -25,6 +25,6 @@ public abstract class TrapEventAction : ScriptableEventAction<TrapEvent>
     {
         var totalDamage = Mathf.Max(damage - defense, 0);
         character.ApplyDamage(totalDamage);
-        Debug.Log($"{character} applied {totalDamage}.");
+        Debug.Log($"{character} applied {totalDamage} damage.");
     }
 }
