@@ -37,7 +37,7 @@ public abstract class MovementHandler : MonoBehaviour
     {
         if (entity.Team != _entity.Team)
             return;
-
+        
         _entity.Energy.Restore();
     }
 

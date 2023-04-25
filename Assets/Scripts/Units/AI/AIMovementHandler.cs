@@ -11,6 +11,14 @@ public class AIMovementHandler : MovementHandler
         _loiteringArea.Center = transform.position;
     }
 
+    protected override void StartMovement(ITurnEntity entity)
+    {
+        if (entity.Team != _entity.Team)
+            return;
+
+        RestartCoroutine(HandleMovement());
+    }
+
     protected override bool TryGetPoint(out Vector3 point)
     {
         var index = Random.Range(0, VectorExtensions.Directions3Y.Length);
