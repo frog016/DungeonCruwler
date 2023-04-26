@@ -46,7 +46,7 @@ public class PathMovement : MonoBehaviour, IPathMovement
     private IEnumerator MoveCoroutine(Vector3 target)
     {
         var direction = (target - transform.position).ToVector3Y().normalized;
-        while (Vector3.Distance(transform.position, target) > 1e-1)
+        while (Vector3.Distance(transform.position.ToVector3Y(), target.ToVector3Y()) > 1e-1)
         {
             transform.position += direction * _speed * Time.deltaTime;
             yield return null;

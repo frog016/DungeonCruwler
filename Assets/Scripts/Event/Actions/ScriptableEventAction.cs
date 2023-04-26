@@ -2,5 +2,8 @@
 
 public abstract class ScriptableEventAction<TEvent> : ScriptableObject, IEventAction<TEvent> where TEvent : IInteractableEvent
 {
-    public abstract void Invoke(TEvent owner, ICharacter target);
+    public virtual void Invoke(TEvent owner, ICharacter target)
+    {
+        target.Interrupted = false;
+    }
 }

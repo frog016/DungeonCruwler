@@ -1,9 +1,11 @@
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class AIMovementHandler : MovementHandler
 {
     [SerializeField] private Area _loiteringArea;
+    [SerializeField] private Map _map;
 
     protected override void Awake()
     {
@@ -21,9 +23,17 @@ public class AIMovementHandler : MovementHandler
 
     protected override bool TryGetPoint(out Vector3 point)
     {
-        var index = Random.Range(0, VectorExtensions.Directions3Y.Length);
-        var direction = VectorExtensions.Directions3Y[index];
-        point = _loiteringArea.Clamp(transform.position + direction);
+        point = default;
+        var neighbors = _map
+            .GetNeighbors(transform.position)
+            .Where(tile => tile.TileType == TileType.Platform)
+            .ToArray();
+
+        if (neighbors.Length == 0)
+            return false;
+
+        var index = Random.Range(0, neighbors.Length);
+        point = _loiteringArea.Clamp(neighbors[index].Position);
         return true;
     }
 }

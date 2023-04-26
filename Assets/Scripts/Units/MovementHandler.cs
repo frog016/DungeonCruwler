@@ -8,13 +8,13 @@ public abstract class MovementHandler : MonoBehaviour
 
     protected IPathMovement _movement;
     protected ITurnEntity _entity;
-
-    private Coroutine _moveCoroutine;
+    protected Coroutine _moveCoroutine;
 
     protected virtual void Awake()
     {
         _movement = GetComponent<IPathMovement>();
         _entity = GetComponent<ITurnEntity>();
+        
     }
 
     private void OnEnable()
@@ -53,9 +53,14 @@ public abstract class MovementHandler : MonoBehaviour
         {
             var next = _movement.MoveNext();
             yield return next;
-            if (next.Current != null && !_entity.Energy.TrySpend(1))
+            if (IsNextPointUnreachable(next))
                 yield break;
         }
+    }
+
+    protected virtual bool IsNextPointUnreachable(IEnumerator next)
+    {
+        return next.Current != null && !_entity.Energy.TrySpend(1);
     }
 
     protected void RestartCoroutine(IEnumerator enumerator)
