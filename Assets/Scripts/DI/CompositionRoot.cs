@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class CompositionRoot : MonoBehaviour
@@ -14,8 +15,8 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private PlayerMovementHandler _playerMovementHandler;
 
     [Header("Round")]
-    [SerializeField] private Round _round;
-    [SerializeField] private TurnEntity[] _entities;
+    [SerializeField] private MapTurnSystem _mapTurnSystem;
+    [SerializeField] private MonoBehaviour[] _entities;
 
     private void Awake()
     {
@@ -45,6 +46,9 @@ public class CompositionRoot : MonoBehaviour
 
     private void BindRound()
     {
-        _round.Constructor(_entities);
+        var entities = _entities
+            .Cast<ITurnEntity>();
+
+        _mapTurnSystem.Constructor(entities);
     }
 }

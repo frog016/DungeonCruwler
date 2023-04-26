@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Round : MonoBehaviour
+public class MapTurnSystem : MonoBehaviour, ITurnSystem
 {
-    public event Action<ITurnEntity> TurnStarted;
-    public event Action<ITurnEntity> TurnEnded;
     public ITurnEntity Current => _entities[_currentIndex];
+    public event Action RoundEnded;
 
     private int _currentIndex;
     private List<ITurnEntity> _entities;
@@ -17,15 +16,13 @@ public class Round : MonoBehaviour
         _entities = entities.ToList();
     }
 
-    private void Start()
-    {
-        TurnStarted?.Invoke(Current);
-    }
-
     public void Next()
     {
-        TurnEnded?.Invoke(Current);
-        _currentIndex = (_currentIndex+ 1) % _entities.Count;
-        TurnStarted?.Invoke(Current);
+        Current.OnTurnEnded();
+        _currentIndex = (_currentIndex + 1) % _entities.Count;
+        if (_currentIndex == 0)
+            RoundEnded?.Invoke();
+
+        Current.OnTurnStarted();
     }
 }

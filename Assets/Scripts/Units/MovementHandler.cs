@@ -1,44 +1,33 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(IPathMovement), typeof(ITurnEntity))]
-public abstract class MovementHandler : MonoBehaviour
+[RequireComponent(typeof(IPathMovement), typeof(IConsumableResource))]
+public abstract class MovementHandler : MonoBehaviour, ITurnEntity
 {
-    [SerializeField] private Round _round;
+    public IConsumableResource Resource { get; private set; }
 
     protected IPathMovement _movement;
-    protected ITurnEntity _entity;
-    protected Coroutine _moveCoroutine;
+    protected Coroutine _movementRoutine;
 
     protected virtual void Awake()
     {
+        Resource = GetComponent<IConsumableResource>();
         _movement = GetComponent<IPathMovement>();
-        _entity = GetComponent<ITurnEntity>();
-        
     }
 
-    private void OnEnable()
+    public virtual void OnTurnStarted()
     {
-        _round.TurnStarted += StartMovement;
-        _round.TurnEnded += EndMovement;
+        RestartCoroutine(HandleMovement());
     }
 
-    private void OnDisable()
+    public virtual void OnTurnEnded()
     {
-        _round.TurnStarted -= StartMovement;
-        _round.TurnEnded -= EndMovement;
+        Resource.Restore();
     }
 
-    protected virtual void StartMovement(ITurnEntity entity)
+    protected virtual bool IsNextPointUnreachable(IEnumerator next)
     {
-    }
-
-    protected virtual void EndMovement(ITurnEntity entity)
-    {
-        if (entity.Team != _entity.Team)
-            return;
-        
-        _entity.Energy.Restore();
+        return next.Current != null && ! Resource.TrySpend(1);
     }
 
     protected abstract bool TryGetPoint(out Vector3 point);
@@ -48,7 +37,7 @@ public abstract class MovementHandler : MonoBehaviour
         if (!TryGetPoint(out var point))
             yield break;
 
-        _movement.SetDestination(point, _entity.Energy.CurrentAmount);
+        _movement.SetDestination(point, Resource.Amount);
         while (true)
         {
             var next = _movement.MoveNext();
@@ -58,16 +47,11 @@ public abstract class MovementHandler : MonoBehaviour
         }
     }
 
-    protected virtual bool IsNextPointUnreachable(IEnumerator next)
-    {
-        return next.Current != null && !_entity.Energy.TrySpend(1);
-    }
-
     protected void RestartCoroutine(IEnumerator enumerator)
     {
-        if (_moveCoroutine != null)
-            StopCoroutine(_moveCoroutine);
+        if (_movementRoutine != null)
+            StopCoroutine(_movementRoutine);
 
-        _moveCoroutine = StartCoroutine(enumerator);
+        _movementRoutine = StartCoroutine(enumerator);
     }
 }

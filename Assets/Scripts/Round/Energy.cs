@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(IStatsUser))]
-public class Energy : MonoBehaviour
+public class Energy : MonoBehaviour, IConsumableResource
 {
-    public int CurrentAmount { get; private set; }
+    public int Amount { get; private set; }
 
     private int _limit;
 
@@ -12,20 +12,20 @@ public class Energy : MonoBehaviour
         var stats = GetComponent<IStatsUser>();
 
         _limit = stats.Stats.GetStat(StatType.Speed);
-        CurrentAmount = _limit;
+        Restore();
     }
 
     public bool TrySpend(int cost)
     {
-        if (cost > CurrentAmount)
+        if (cost > Amount)
             return false;
 
-        CurrentAmount -= cost;
+        Amount -= cost;
         return true;
     }
 
     public void Restore()
     {
-        CurrentAmount = _limit;
+        Amount = _limit;
     }
 }

@@ -29,15 +29,20 @@ public class PlayerMovementHandler : MovementHandler
             RestartCoroutine( HandleMovement());
     }
 
-    protected override void StartMovement(ITurnEntity entity)
+    public override void OnTurnStarted()
     {
         _interruptible.Interrupted = false;
     }
 
-    protected override void EndMovement(ITurnEntity entity)
+    public override void OnTurnEnded()
     {
-        base.EndMovement(entity);
+        base.OnTurnEnded();
         _interruptible.Interrupted = true;
+    }
+
+    protected override bool IsNextPointUnreachable(IEnumerator next)
+    {
+        return _interruptible.Interrupted || base.IsNextPointUnreachable(next);
     }
 
     protected override bool TryGetPoint(out Vector3 point)
@@ -45,10 +50,5 @@ public class PlayerMovementHandler : MovementHandler
         var result = _camera.ScreenPointToHit(Input.mousePosition, _layer, out var hit);
         point = hit.transform.position;
         return result;
-    }
-
-    protected override bool IsNextPointUnreachable(IEnumerator next)
-    {
-        return _interruptible.Interrupted || base.IsNextPointUnreachable(next);
     }
 }
