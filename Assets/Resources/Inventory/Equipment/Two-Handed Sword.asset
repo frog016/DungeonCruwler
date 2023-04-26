@@ -10,16 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33d8a1cefaf5b1a40a4a3f9595162165, type: 3}
-  m_Name: Two-Handed Axe
+  m_Name: Two-Handed Sword
   m_EditorClassIdentifier: 
-  _slot: 2
+  _slot: 6
   _additionalStats:
     _modificationStats: []
-  _damageMultiplier: 1.5
-  _damageDice: 6
-  _attackDistance: 0
-  _criticalData:
-    _allowableDiceRange:
-      _from: 19
-      _to: 20
-    _multiplier: 2
+  _additionalCompositeStats:
+    _modificationStats: []
+  _damage: 3
+  _damageType: 0
+  _requiredStats:
+  - _stat: 0
+    _requiredCount: 0
+    _usagePercentage: 0.1
+  _attacks:
+  - _damageThreshold: 0
+    _attack: {fileID: 11400000, guid: b52869ade55b292448a9b5ca6bd69336, type: 2}
+  - _damageThreshold: 0
+    _attack: {fileID: 11400000, guid: e29c0a021a4bd4d4d801e675d323e4fd, type: 2}

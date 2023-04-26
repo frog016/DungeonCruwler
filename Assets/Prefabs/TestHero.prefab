@@ -93,7 +93,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1499013701
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ CapsuleCollider:
   m_Radius: 0.25
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4679551730997365180
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,10 +242,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25d20bc949184543bb2367cd11b9a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _round: {fileID: 0}
   _layer:
     serializedVersion: 2
     m_Bits: 64
-  _energy: {fileID: 7788223492985035100}
 --- !u!114 &4679551730997365174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8f0589badec824d813929bc3c1f945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _round: {fileID: 0}
 --- !u!114 &4679551730997365183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4679551732562848492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -479,4 +478,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 2
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
