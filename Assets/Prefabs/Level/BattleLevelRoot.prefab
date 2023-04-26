@@ -1285,7 +1285,7 @@ GameObject:
   - component: {fileID: 5838612985472629297}
   - component: {fileID: 3669336245607747409}
   m_Layer: 0
-  m_Name: CombatLevelRoot
+  m_Name: BattleLevelRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1305,9 +1305,9 @@ Transform:
   m_Children:
   - {fileID: 5838612984668894525}
   - {fileID: 5838612985663973580}
+  - {fileID: 5838612985610468093}
   - {fileID: 5838612984555020508}
   - {fileID: 5838612984093674745}
-  - {fileID: 5838612985610468093}
   - {fileID: 5838612984695002776}
   - {fileID: 5838612983533031209}
   - {fileID: 5838612983666463207}

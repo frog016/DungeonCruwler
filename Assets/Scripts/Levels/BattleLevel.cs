@@ -1,5 +1,9 @@
-﻿public class BattleLevel : Level<BattleLevel.Data>
+﻿using UnityEngine;
+
+public class BattleLevel : Level<BattleLevel.Data>
 {
+    [SerializeField] private StateTurnBasedCombat _combat;
+
     private Data _data;
 
     public override void Load(Data data)
