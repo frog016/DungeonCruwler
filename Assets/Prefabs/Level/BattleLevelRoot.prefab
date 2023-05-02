@@ -255,9 +255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b36b2c67242cf4d921a38b0b50237c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseStats: {fileID: 11400000, guid: 9357bd2f24c4590419bc8af0d3ac1738, type: 2}
-  _compositeStats: {fileID: 11400000, guid: 6313067bb15e3734399c60ec5ffee3ce, type: 2}
-  _inventory: {fileID: 11400000, guid: 756f4efa7f2632247863ef18ce899afc, type: 2}
 --- !u!114 &5838612984093674743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,9 +450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b36b2c67242cf4d921a38b0b50237c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseStats: {fileID: 11400000, guid: de7e734e313e0654f8ecb628094dde40, type: 2}
-  _compositeStats: {fileID: 11400000, guid: d0aea83fc9984f24aafba543e754e6e4, type: 2}
-  _inventory: {fileID: 11400000, guid: eeead2ce24c173544b719a841987c50f, type: 2}
 --- !u!114 &5838612984555020503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,7 +822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edfc042a8c771eb49b6633c1e289645b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 5838612984555020507}
   _presenterPrefab: {fileID: 6234848837383481080, guid: 740358bfc8461884ab094c23798de6d0, type: 3}
 --- !u!1 &5838612985018805986
 GameObject:
@@ -954,7 +947,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5838612985610468090}
         m_TargetAssemblyTypeName: StateTurnBasedCombat, Assembly-CSharp
-        m_MethodName: StartCombat
+        m_MethodName: Initialize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1284,6 +1277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5838612985472629297}
   - component: {fileID: 3669336245607747409}
+  - component: {fileID: 870988652816095210}
   m_Layer: 0
   m_Name: BattleLevelRoot
   m_TagString: Untagged
@@ -1327,7 +1321,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca3eaef0b66576142ad6ee801319e6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeCamera: {fileID: 5838612984668894526}
+--- !u!114 &870988652816095210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5838612985472629298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b603c770b44cb6bd71d254a56856ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _combat: {fileID: 5838612985610468090}
+  _fighters:
+  - {fileID: 5838612984555020507}
+  - {fileID: 5838612984093674747}
+  _level: {fileID: 3669336245607747409}
+  _resultHandler: {fileID: 5176651939325304665}
+  _listPresenter: {fileID: 5838612984799097605}
 --- !u!1 &5838612985610468094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,7 +1351,6 @@ GameObject:
   - component: {fileID: 5838612985610468093}
   - component: {fileID: 5838612985610468090}
   - component: {fileID: 5176651939325304665}
-  - component: {fileID: 5838612985610468091}
   - component: {fileID: 8161981068830740060}
   m_Layer: 0
   m_Name: Combat
@@ -1387,23 +1398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63158ade1c26cc49830a8f372f3986c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: {fileID: 3669336245607747409}
---- !u!114 &5838612985610468091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5838612985610468094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a758c21fdcfdeb44db4b8e7d601a3bc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _combat: {fileID: 5838612985610468090}
-  _stateMachines:
-  - {fileID: 5838612984555020507}
-  - {fileID: 5838612984093674747}
 --- !u!114 &8161981068830740060
 MonoBehaviour:
   m_ObjectHideFlags: 0

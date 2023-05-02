@@ -1,34 +1,35 @@
 using UnityEngine;
 
 [RequireComponent(typeof(IAttackGiver))]
-public class CombatStateMachine : DamageableUnit, ICharacter
+public class CombatEntity : DamageableUnit, ICombatEntity, ICombatStateMachine
 {
+    public Team Team { get; private set; }
+    public bool Interrupted { get; set; }
     public IStats Stats { get; private set; }
     public ICompositeStats CompositeStats { get; private set; }
     public IInventory Inventory { get; private set; }
-
-    public ICombatState CurrentState { get; private set; }
+    public ICombatState Current { get; private set; }
     public IAttackGiver AttackGiver { get; private set; }
-    public bool Interrupted { get; set; }
-
+    
     private void Awake()
     {
         AttackGiver = GetComponent<IAttackGiver>();
     }
 
-    public void Initialize(IStats stats, ICompositeStats compositeStats, IInventory inventory)
+    public void Initialize(ICharacter character)
     {
-        Stats = stats;
-        CompositeStats = compositeStats;
-        Inventory = inventory;
-
+        Stats = character.Stats;
+        CompositeStats = character.CompositeStats;
+        Inventory = character.Inventory;
+        Team = character.Team;
+        
         MaxHealth = CompositeStats.GetStat(CompositeStatType.Health);
         Health = MaxHealth;
     }
 
     public void SetState(ICombatState newState)
     {
-        CurrentState = newState;
+        Current = newState;
         newState?.Enter(this);
     }
 }

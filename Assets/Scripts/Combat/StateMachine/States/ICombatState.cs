@@ -1,5 +1,5 @@
 public interface ICombatState
 {
-    void Enter(CombatStateMachine stateMachine);
+    void Enter(CombatEntity entity);
     void Next();
 }

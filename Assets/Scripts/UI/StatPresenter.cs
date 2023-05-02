@@ -5,7 +5,7 @@ using UnityEngine;
 public class StatPresenter : MonoBehaviour
 {
     [SerializeField] private StatView _statViewPrefab;
-    [SerializeField] private Character _character;
+    [SerializeField] private CombatEntity _character;
 
     private Dictionary<Enum, StatView> _views = new Dictionary<Enum, StatView>();
 

@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class Character : DamageableUnit, ICharacter
 {
+    [SerializeField] private Team _team;
     [SerializeField] private StatsConfigurator _baseStats;
     [SerializeField] private CompositeStatsConfigurator _compositeStats;
     [SerializeField] private Inventory _inventory;
 
+    public Team Team => _team;
     public bool Interrupted { get; set; }
     public IStats Stats { get; private set; }
     public ICompositeStats CompositeStats { get; private set; }
     public IInventory Inventory => _inventory;
+
 
     protected virtual void Awake()
     {

@@ -1,11 +1,13 @@
-﻿public class MainLevel : Level<object>
+﻿using UnityEngine;
+
+public class MainLevel : MonoBehaviour
 {
-    public override void Load(object _)
+    public void Load()
     {
         gameObject.SetActive(true);
     }
 
-    public override void Unload()
+    public void Unload()
     {
         gameObject.SetActive(false);
     }

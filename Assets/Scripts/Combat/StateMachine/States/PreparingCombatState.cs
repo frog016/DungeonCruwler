@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class PreparingCombatState : ICombatState
 {
-    private CombatStateMachine _stateMachine;
+    private CombatEntity _entity;
     private ICombatState _nextState;
 
-    public void Enter(CombatStateMachine stateMachine)
+    public void Enter(CombatEntity entity)
     {
-        _stateMachine = stateMachine;
-        _stateMachine.StartCoroutine(WaitAttackAndTargetCoroutine());
+        _entity = entity;
+        _entity.StartCoroutine(WaitAttackAndTargetCoroutine());
     }
 
     private IEnumerator WaitAttackAndTargetCoroutine()
     {
-        var attackGiver = _stateMachine.AttackGiver;
+        var attackGiver = _entity.AttackGiver;
         Attack attack = null;
-        CombatStateMachine target = null;
+        CombatEntity target = null;
         yield return new WaitUntil(() => attackGiver.TryGetAttack(out attack, out target));
-        Debug.Log($"The {_stateMachine} has chosen {attack} and target {target}.");
+        Debug.Log($"The {_entity} has chosen {attack} and target {target}.");
         _nextState = new AttackAnimationState(attack, target);
         Next();
     }
@@ -29,6 +29,6 @@ public class PreparingCombatState : ICombatState
         if (_nextState == null)
             throw new InvalidOperationException("You cannot move to a new state until you select an action and enemy.");
 
-        _stateMachine.SetState(_nextState);
+        _entity.SetState(_nextState);
     }
 }

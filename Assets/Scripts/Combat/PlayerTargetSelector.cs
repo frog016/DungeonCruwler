@@ -25,7 +25,7 @@ public class PlayerTargetSelector : MonoBehaviour
         var mousePosition = Input.mousePosition;
         if (!_camera.ScreenPointToHit(mousePosition, out var hit) ||
             hit.transform.gameObject == gameObject ||                               // TODO: Replace this line with ITargetable that CombatStateMachine inherits
-            !hit.transform.TryGetComponent<CombatStateMachine>(out var machine))
+            !hit.transform.TryGetComponent<CombatEntity>(out var machine))
             return;
 
         _attackGiver.Target = machine;

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a9b0352c7e7714695a5d7ab682077a, type: 3}
   m_Name: TestEnemyInventory
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 11400000, guid: ac0b5969a055fcd4289bfccf014a8c96, type: 2}
+  _weapon: {fileID: 11400000, guid: cd257ff051af8e8448c4211eef9e9fff, type: 2}
