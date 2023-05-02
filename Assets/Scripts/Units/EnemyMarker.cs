@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Character : DamageableUnit, ICharacter
+public class EnemyMarker : DamageableUnit, ICharacter
 {
     [SerializeField] private Team _team;
     [SerializeField] private StatsConfigurator _baseStats;
     [SerializeField] private CompositeStatsConfigurator _compositeStats;
-    [SerializeField] private ScriptableInventory _inventory;
+    [SerializeField] private EditorInventory _inventory;
 
     public Team Team => _team;
     public bool Interrupted { get; set; }

@@ -9,8 +9,9 @@ public class BattleEvent : HiddenInteractableEvent<BattleEvent>
 
     private ICharacter _character;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _character = GetComponent<ICharacter>();
     }
     protected override bool OnInteract(ICharacter character)
@@ -18,7 +19,8 @@ public class BattleEvent : HiddenInteractableEvent<BattleEvent>
         _mainLevel.Unload();
 
         var level = Instantiate(_battleLevelPrefab, _battleLevelPosition);
+        level.Initiator = gameObject;
         level.Load(new ICharacter[] { character, _character });
-        return true;
+        return false;
     }
 }

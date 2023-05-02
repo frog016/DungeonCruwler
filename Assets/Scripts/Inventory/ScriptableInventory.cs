@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Inventory", fileName = "Inventory")]
-public class Inventory : ScriptableObject, IInventory
+public class ScriptableInventory : ScriptableObject, IInventory
 {
     [SerializeField] private Weapon _weapon;
 

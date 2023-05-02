@@ -40,16 +40,18 @@ public class PathMovement : MonoBehaviour, IPathMovement
         if (!_path.TryGetCurrent(deltaIndex, out var point))
             yield break;
 
-        yield return MoveCoroutine(point);
+        yield return MoveCoroutine(transform.position.ToVector3Y(), point.ToVector3Y());
     }
 
-    private IEnumerator MoveCoroutine(Vector3 target)
+    private IEnumerator MoveCoroutine(Vector3 from, Vector3 to)
     {
-        var direction = (target - transform.position).ToVector3Y().normalized;
-        while (Vector3.Distance(transform.position.ToVector3Y(), target.ToVector3Y()) > 1e-1)
+        var step = _speed / (to - from).magnitude;
+        var time = 0f;
+        while (time <= 1f)
         {
-            transform.position += direction * _speed * Time.deltaTime;
-            yield return null;
+            time += step * Time.fixedDeltaTime;
+            transform.position = Vector3.Lerp(from, to, time);
+            yield return new WaitForFixedUpdate();
         }
     }
 }

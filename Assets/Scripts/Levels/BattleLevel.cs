@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class BattleLevel : MonoBehaviour
 {
+    public GameObject Initiator { get; set; }
+
     private ITurnBasedCombat _combat;
 
     public void Constructor(ITurnBasedCombat combat)

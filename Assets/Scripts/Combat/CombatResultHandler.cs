@@ -28,6 +28,8 @@ public class CombatResultHandler : MonoBehaviour, IResultHandler
     {
         Result = winner.Team == Team.Player;
         Reward = Result ? GetReward() : null;
+        if (Result)
+            Destroy(_level.Initiator);
         _level.Unload();
         var mainLevel = FindObjectOfType<MainLevel>(true);
         mainLevel.Load();
@@ -35,6 +37,6 @@ public class CombatResultHandler : MonoBehaviour, IResultHandler
 
     private object GetReward()
     {
-        throw new System.NotImplementedException();
+        return null;
     }
 }
