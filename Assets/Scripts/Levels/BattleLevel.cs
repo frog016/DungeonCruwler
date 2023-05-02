@@ -1,31 +1,25 @@
-﻿public class BattleLevel : Level<BattleLevel.Data>
+﻿using System.Linq;
+using UnityEngine;
+
+public class BattleLevel : MonoBehaviour
 {
-    private Data _data;
+    public GameObject Initiator { get; set; }
 
-    public override void Load(Data data)
+    private ITurnBasedCombat _combat;
+
+    public void Constructor(ITurnBasedCombat combat)
     {
-        _data = data;
-        _data.CameraSwitcher.Switch(_activeCamera);
+        _combat = combat;
     }
 
-    public override void Unload()
+    public void Load(ICharacter[] characters)
     {
-        _data.CameraSwitcher.ReturnPrevious();
-        _data.MainLevel.Load(null);
+        _combat.Initialize(characters);
+        _combat.Launch();
+    }
+
+    public void Unload()
+    {
         Destroy(gameObject);
-    }
-
-    public readonly struct Data
-    {
-        public readonly MainLevel MainLevel;
-        public readonly CameraSwitcher CameraSwitcher;
-        public readonly IInteractableEvent BattleEvent;
-
-        public Data(CameraSwitcher cameraSwitcher, MainLevel mainLevel, IInteractableEvent battleEvent)
-        {
-            CameraSwitcher = cameraSwitcher;
-            MainLevel = mainLevel;
-            BattleEvent = battleEvent;
-        }
     }
 }

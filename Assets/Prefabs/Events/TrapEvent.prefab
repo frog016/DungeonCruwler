@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6677620944589186651}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d963d780787eab34492489c93b4c6a63, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,11 +128,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6677620945051611285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb375c9981507848af7ecf91714aceb, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d04ad6a0bbd0d94198f4487ef960c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actions: []
-  _hiddenAction: {fileID: 0}
+  _actions:
+  - {fileID: 11400000, guid: 33c1eb5e771b89a488225321ead0abf6, type: 2}
+  - {fileID: 11400000, guid: 2183bff5e3becf94cb6f08a48d29a517, type: 2}
+  _hiddenAction: {fileID: 11400000, guid: c92343fd9aebc59469729f0b9ce16f93, type: 2}
   _data: {fileID: 0}
   _effect: {fileID: 0}
 --- !u!114 &6677620945051611287

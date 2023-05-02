@@ -1,31 +1,41 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class StateTurnBasedCombat : MonoBehaviour, ITurnBasedCombat
 {
-    public event Action<CombatStateMachine[]> TurnStarted;
-    public event Action<CombatStateMachine> CombatEnded;
+    public event Action<ICombatEntity[]> TurnStarted;
+    public event Action<ICombatEntity> CombatEnded;
+    public IEnumerable<ICombatEntity> Fighters => _stateMachines;
 
     private ICombatTurnPlanner _turnPlanner;
-    private CombatStateMachine[] _stateMachines;
+    private CombatEntity[] _stateMachines;
     private Coroutine _combatCoroutine;
-
-    public void Constructor(ICombatTurnPlanner turnPlanner, CombatStateMachine[] stateMachines)
+    
+    public void Constructor(ICombatTurnPlanner turnPlanner, CombatEntity[] stateMachines)
     {
         _turnPlanner = turnPlanner;
         _stateMachines = stateMachines;
     }
 
-    public void StartCombat()
+    public void Initialize(ICharacter[] characters)
+    {
+        var characterMachinePairs = characters.Zip(Fighters, Tuple.Create);
+        foreach (var (character, machine) in characterMachinePairs)
+            machine.Initialize(character);
+    }
+
+    public void Launch()
     {
         _combatCoroutine ??= StartCoroutine(CombatCoroutine());
     }
 
     private IEnumerator CombatCoroutine()
     {
-        while (_stateMachines.All(machine => machine?.Health > 0))
+        yield return null;
+        while (_stateMachines.All(machine => machine.Health > 0))
         {
             TurnStarted?.Invoke(_stateMachines);
 
@@ -34,8 +44,8 @@ public class StateTurnBasedCombat : MonoBehaviour, ITurnBasedCombat
             {
                 Debug.Log($"Now it's player turn {machine}.");
                 var currentMachine = machine;
-                currentMachine?.SetState(new PreparingCombatState());
-                yield return new WaitUntil(() => currentMachine?.CurrentState is CompletedCombatState);
+                currentMachine.SetState(new PreparingCombatState());
+                yield return new WaitUntil(() => currentMachine.Current is CompletedCombatState);
             }
 
             yield return null;
@@ -44,7 +54,7 @@ public class StateTurnBasedCombat : MonoBehaviour, ITurnBasedCombat
         CombatEnded?.Invoke(_stateMachines.First(machine => machine.Health != 0));
     }
 
-    private CombatStateMachine[] GetSequence()
+    private CombatEntity[] GetSequence()
     {
         return _turnPlanner
             .PlaneTurnSequence(_stateMachines)

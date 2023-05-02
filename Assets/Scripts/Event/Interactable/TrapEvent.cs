@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class TrapEvent : HiddenInteractableEvent<TrapEvent>
 {
@@ -7,6 +8,8 @@ public class TrapEvent : HiddenInteractableEvent<TrapEvent>
     
     public TrapData TrapData => _data;
     public IEffect Effect { get; private set; }
+
+    public static event Action<TrapEvent, ICharacter> EventInteracted;
 
     private void OnValidate()
     {
@@ -22,7 +25,10 @@ public class TrapEvent : HiddenInteractableEvent<TrapEvent>
     protected override bool OnInteract(ICharacter character)
     {
         if (_hiddenObject.Detected)
+        {
+            EventInteracted?.Invoke(this, character);
             return true;
+        }
 
         _hiddenAction?.Invoke(this, character);
         return false;

@@ -1,25 +1,42 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(ITurnBasedCombat))]
-public class CombatResultHandler : MonoBehaviour
+public class CombatResultHandler : MonoBehaviour, IResultHandler
 {
-    [SerializeField] private BattleLevel _level;
+    public object Reward { get; private set; }
+    public bool Result { get; private set; }
 
     private ITurnBasedCombat _combat;
+    private BattleLevel _level;
 
-    private void Awake()
+    public void Constructor(ITurnBasedCombat combat, BattleLevel level)
     {
-        _combat = GetComponent<ITurnBasedCombat>();
-        _combat.CombatEnded += HandleCombatResult;
+        _combat =  combat;
+        _level = level;
     }
 
-    private void OnDestroy()
+    private void OnEnable()
     {
-        _combat.CombatEnded -= HandleCombatResult;
+        _combat.CombatEnded += CreateBattleResult;
     }
 
-    private void HandleCombatResult(CombatStateMachine winner)
+    private void OnDisable()
     {
+        _combat.CombatEnded -= CreateBattleResult;
+    }
+
+    private void CreateBattleResult(ICombatEntity winner)
+    {
+        Result = winner.Team == Team.Player;
+        Reward = Result ? GetReward() : null;
+        if (Result)
+            Destroy(_level.Initiator);
         _level.Unload();
+        var mainLevel = FindObjectOfType<MainLevel>(true);
+        mainLevel.Load();
+    }
+
+    private object GetReward()
+    {
+        return null;
     }
 }

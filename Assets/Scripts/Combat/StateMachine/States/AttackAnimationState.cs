@@ -4,30 +4,30 @@ using UnityEngine;
 public class AttackAnimationState : ICombatState
 {
     private readonly Attack _attack;
-    private readonly CombatStateMachine _target;
+    private readonly CombatEntity _target;
 
-    private CombatStateMachine _stateMachine;
+    private CombatEntity _entity;
 
-    public AttackAnimationState(Attack attack, CombatStateMachine target)
+    public AttackAnimationState(Attack attack, CombatEntity target)
     {
         _attack = attack;
         _target = target;
     }
 
-    public void Enter(CombatStateMachine stateMachine)
+    public void Enter(CombatEntity entity)
     {
-        _stateMachine = stateMachine;
-        stateMachine.StartCoroutine(AnimateAttack());
+        _entity = entity;
+        entity.StartCoroutine(AnimateAttack());
     }
 
     public void Next()
     {
-        _stateMachine.SetState(new CompletedCombatState());
+        _entity.SetState(new CompletedCombatState());
     }
 
     private IEnumerator AnimateAttack()
     {
-        var transform = _stateMachine.transform;
+        var transform = _entity.transform;
         var target = _target.transform;
         const float animationTime = 3f;
         var elapsedTime = 0f;
@@ -41,7 +41,7 @@ public class AttackAnimationState : ICombatState
         }
 
         elapsedTime = 0f;
-        _attack.Use(_stateMachine, _target);
+        _attack.Use(_entity, _target);
 
         while (Vector3.Distance(transform.position, start) > 1e-1)
         {

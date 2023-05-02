@@ -21,6 +21,14 @@ public static class VectorExtensions
         Vector2Int.left
     };
 
+    public static Vector3[] Directions3Y = new Vector3[]
+    {
+        Vector3.left,
+        Vector3.right, 
+        Vector3.forward,
+        Vector3.back, 
+    };
+
     public static Vector3 ToVector3(this Vector3Int vector)
     {
         return new Vector3(vector.x, vector.y, vector.z);
@@ -51,7 +59,7 @@ public static class VectorExtensions
         return new Vector3Int(vector.x, 0, vector.z);
     }
 
-    public static Vector3 ToVector3Plane(this Vector3 vector)
+    public static Vector3 ToVector3Y(this Vector3 vector)
     {
         return new Vector3(vector.x, 0, vector.z);
     }
@@ -72,7 +80,7 @@ public static class VectorExtensions
 
     public static Vector3 RotateInPlane(this Vector3 vector, float radiansAngle)
     {
-        var planeVector = vector.ToVector3Plane();
+        var planeVector = vector.ToVector3Y();
         var x = planeVector.x * Mathf.Cos(radiansAngle) - planeVector.z * Mathf.Sin(radiansAngle);
         var z = planeVector.x * Mathf.Sin(radiansAngle) + planeVector.z * Mathf.Cos(radiansAngle);
         return new Vector3(x, 0, z);

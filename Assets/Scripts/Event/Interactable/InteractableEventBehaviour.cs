@@ -13,8 +13,11 @@ public abstract class InteractableEventBehaviour<TEvent> : MonoBehaviour,
 
     public void Interact(ICharacter character)
     {
-        if (OnInteract(character))
-            Interacted?.Invoke(character);
+        if (!OnInteract(character))
+            return;
+
+        character.Interrupted = true;
+        Interacted?.Invoke(character);
     }
 
     public virtual void DestroyEvent()

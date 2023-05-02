@@ -15,6 +15,8 @@ public class TileablePathfinder : IPathfinder
     {
         var startTile = _map.GetTile(start);
         var endTile = _map.GetTile(end);
+        if (IsObstacle(endTile))
+            yield break;
 
         var routs = new Dictionary<ITile, ITile> { [startTile] = null };
         var queue = new Queue<ITile>();
@@ -25,7 +27,7 @@ public class TileablePathfinder : IPathfinder
             var current = queue.Dequeue();
             foreach (var neighbor in _map.GetNeighbors(current.Position))
             {
-                if (routs.ContainsKey(neighbor)) 
+                if (IsObstacle(neighbor) || routs.ContainsKey(neighbor)) 
                     continue;
 
                 routs[neighbor] = current;
@@ -36,8 +38,13 @@ public class TileablePathfinder : IPathfinder
                 break;
         }
 
-        return CreatePath(routs, endTile)
-            .Reverse();
+        foreach (var point in CreatePath(routs, endTile).Reverse())
+            yield return point;
+    }
+
+    private static bool IsObstacle(ITile tile)
+    {
+        return tile.TileType == TileType.Obstacle;
     }
 
     private static IEnumerable<Vector3> CreatePath(IReadOnlyDictionary<ITile, ITile> routs, ITile endTile)

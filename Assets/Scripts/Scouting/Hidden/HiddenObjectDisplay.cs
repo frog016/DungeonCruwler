@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(IHiddenObject))]
@@ -10,15 +11,16 @@ public class HiddenObjectDisplay : MonoBehaviour
     private void Awake()
     {
         _hiddenObject = GetComponent<IHiddenObject>();
-        _hiddenObject.Discovered += Show;
+        _hiddenObject.Discovered += Display;
+        _model.enabled = false;
     }
 
     private void OnDestroy()
     {
-        _hiddenObject.Discovered -= Show;
+        _hiddenObject.Discovered -= Display;
     }
 
-    private void Show()
+    private void Display()
     {
         _model.enabled = true;
     }

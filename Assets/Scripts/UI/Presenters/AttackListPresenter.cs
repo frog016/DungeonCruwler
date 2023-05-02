@@ -1,39 +1,38 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AttackListPresenter : MonoBehaviour
 {
-    [SerializeField] private CombatStateMachine _player;
     [SerializeField] private AttackPresenter _presenterPrefab;
 
+    private ICombatEntity _player;
     private List<AttackPresenter> _createdPresenters;
 
-    private void Awake()
+    private void Start()
     {
-        _createdPresenters = new List<AttackPresenter>();
-        InitializePresenters();
-    }
-
-    private void OnEnable()
-    {
+        _player = FindObjectsOfType<CombatEntity>().First(entity => entity.Team == Team.Player);
+        _createdPresenters = InitializePresenters()
+            .ToList();
+        
         foreach (var presenter in _createdPresenters) 
             presenter.AttackChosen += OnAttackChosen;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         foreach (var presenter in _createdPresenters)
             presenter.AttackChosen -= OnAttackChosen;
     }
 
-    private void InitializePresenters()
+    private IEnumerable<AttackPresenter> InitializePresenters()
     {
         var weapon = _player.Inventory.Weapon;
         foreach (var attack in weapon.Attacks)
         {
             var presenter = Instantiate(_presenterPrefab, transform);
             presenter.Initialize(attack);
-            _createdPresenters.Add(presenter);
+            yield return presenter;
         }
     }
 

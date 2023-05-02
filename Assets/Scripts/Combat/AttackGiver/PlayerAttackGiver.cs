@@ -3,9 +3,9 @@
 public class PlayerAttackGiver : MonoBehaviour, IPlayerAttackGiver
 {
     public Attack CurrentAttack { get; set; }
-    public CombatStateMachine Target { get; set; }
+    public CombatEntity Target { get; set; }
 
-    public bool TryGetAttack(out Attack attack, out CombatStateMachine target)
+    public bool TryGetAttack(out Attack attack, out CombatEntity target)
     {
         attack = CurrentAttack;
         target = Target;

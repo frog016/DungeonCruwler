@@ -93,7 +93,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1499013701
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ CapsuleCollider:
   m_Radius: 0.25
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4679551730997365180
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 4679551730997365174}
   - component: {fileID: 4679551730997365168}
   - component: {fileID: 4679551730997365183}
+  - component: {fileID: 7788223492985035100}
   m_Layer: 0
   m_Name: TestHero
   m_TagString: Untagged
@@ -226,7 +227,7 @@ Transform:
   - {fileID: 360580346}
   - {fileID: 4679551732562848493}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4679551730997365174
 MonoBehaviour:
@@ -271,6 +272,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+--- !u!114 &7788223492985035100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679551730997365180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b04cd0c85bc1454190932566aa7a5a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4679551732562848492
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4679551732562848492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -332,7 +345,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e373e0d3859bce347baf15757b034f17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -402,6 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _viewRadius: 2
   _sphereCollider: {fileID: 4029292925368806269}
+  _map: {fileID: 0}
 --- !u!54 &8280273103767063764
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -449,4 +463,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 2
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}

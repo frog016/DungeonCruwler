@@ -3,23 +3,22 @@ using UnityEngine;
 
 public class TrapEventPresenter : MonoBehaviour
 {
-    [SerializeField] private TrapEvent _event;
     [SerializeField] private EventActionPanel _actionPanel;
 
     private void OnEnable()
     {
-        _event.Interacted += ShowEventActions;
         _actionPanel.Close();
+        TrapEvent.EventInteracted += ShowEventActions;
     }
 
     private void OnDisable()
     {
-        _event.Interacted -= ShowEventActions;
+        TrapEvent.EventInteracted -= ShowEventActions;
     }
 
-    private void ShowEventActions(ICharacter character)
+    private void ShowEventActions(TrapEvent trapEvent, ICharacter character)
     {
-        var actions = _event.Actions.ToArray();
-        _actionPanel.InitializeView(_event, actions, character);
+        var actions = trapEvent.Actions.ToArray();
+        _actionPanel.InitializeView(trapEvent, actions, character);
     }
 }

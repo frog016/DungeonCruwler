@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(ICharacter))]
 public class RandomAttackGiver : MonoBehaviour, IAttackGiver
 {
-    [SerializeField] private CombatStateMachine _target;
+    [SerializeField] private CombatEntity _target;
 
     private Weapon _weapon;
 
@@ -14,7 +14,7 @@ public class RandomAttackGiver : MonoBehaviour, IAttackGiver
         _weapon = character.Inventory.Weapon;
     }
 
-    public bool TryGetAttack(out Attack attack, out CombatStateMachine target)
+    public bool TryGetAttack(out Attack attack, out CombatEntity target)
     {
         attack = GetRandomAttack();
         target = _target;
