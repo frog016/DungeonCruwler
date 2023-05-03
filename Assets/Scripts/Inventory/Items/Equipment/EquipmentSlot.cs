@@ -2,7 +2,6 @@
 {
     Head,
     Body,
-    Gloves,
     Boots,
     LeftHand,
     RightHand,

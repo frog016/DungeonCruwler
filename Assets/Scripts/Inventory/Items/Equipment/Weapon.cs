@@ -8,7 +8,7 @@ public class Weapon : Equipment
 {
     [SerializeField] private int _damage;
     [SerializeField] private DamageType _damageType;
-    [SerializeField] private StatCount[] _requiredStats;
+    [SerializeField] private RequiredStat[] _requiredStats;
     [SerializeField] private WeaponAttackData[] _attacks;
 
     public DamageType DamageType => _damageType;
@@ -40,14 +40,14 @@ public class Weapon : Equipment
     }
 
     [Serializable]
-    public class StatCount
+    public class RequiredStat
     {
         [SerializeField] private StatType _stat;
-        [SerializeField] private int _requiredCount;
+        [SerializeField] private int _count;
         [SerializeField, Range(0f, 1f)] private float _usagePercentage;
 
         public StatType Stat => _stat;
-        public int RequiredCount => _requiredCount;
+        public int Count => _count;
         public float UsagePercentage => _usagePercentage;
     }
 }

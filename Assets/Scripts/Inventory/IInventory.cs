@@ -1,4 +1,4 @@
-﻿public interface IInventory
+﻿public interface IInventory : ICollection<IItem>
 {
-    Weapon Weapon { get; }
+    IItem GetByHash(int itemHash);
 }
