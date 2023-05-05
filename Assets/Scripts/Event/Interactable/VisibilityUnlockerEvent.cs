@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class VisibilityUnlockerEvent : InteractableEventBehaviour<VisibilityUnlockerEvent>
@@ -14,6 +13,8 @@ public class VisibilityUnlockerEvent : InteractableEventBehaviour<VisibilityUnlo
 
     protected override bool OnInteract(ICharacter character)
     {
+        var action = Actions.First();
+        action?.Invoke(this, character);
         Debug.Log($"{character} interacted with VisibilityUnlockerEvent.");
         return true;
     }

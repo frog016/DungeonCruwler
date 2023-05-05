@@ -10,10 +10,12 @@ public class MapTurnSystem : MonoBehaviour, ITurnSystem
 
     private int _currentIndex;
     private List<ITurnEntity> _entities;
+    public bool _isInitialized;
 
     public void Constructor(IEnumerable<ITurnEntity> entities)
     {
         _entities = entities.ToList();
+        _isInitialized = true;
     }
 
     public void Next()

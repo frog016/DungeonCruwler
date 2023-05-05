@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
 
-public class BreakableObjectEvent : InteractableEventBehaviour<BreakableObjectEvent>
+public class BreakableObjectEvent : HiddenInteractableEvent<BreakableObjectEvent>
 {
     protected override bool OnInteract(ICharacter character)
     {
-        Debug.Log($"{character} interacted with BreakableObjectEvent.");
+        if (!_hiddenObject.Detected)
+            return false;
+
+        var action = Actions?.First();
+        action?.Invoke(this, character);
         return true;
     }
 }

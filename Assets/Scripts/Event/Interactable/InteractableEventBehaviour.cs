@@ -16,7 +16,7 @@ public abstract class InteractableEventBehaviour<TEvent> : MonoBehaviour,
         if (!OnInteract(character))
             return;
 
-        character.Interrupted = true;
+        //character.Interrupted = true;
         Interacted?.Invoke(character);
     }
 
