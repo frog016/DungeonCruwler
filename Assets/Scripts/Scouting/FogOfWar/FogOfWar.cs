@@ -41,6 +41,16 @@ public class FogOfWar : MonoBehaviour
         _fog.UpdateBufferTexture();
     }
 
+    public void AddDiscoverer(FogDiscoverer discoverer)
+    {
+        _fogDiscoverers.Add(discoverer);
+    }
+
+    public void RemoveDiscoverer(FogDiscoverer discoverer)
+    {
+        _fogDiscoverers.Remove(discoverer);
+    }
+
     private void InitializeFog()
     {
         _fog = Instantiate(_fogPrefab);
