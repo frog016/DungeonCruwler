@@ -7,7 +7,7 @@ public abstract class Attack : ScriptableObject
 
     public void Use<T>(T owner, T target) where T : ICharacter
     {
-        var weapon = owner.Inventory.Weapon;
+        var weapon = owner.GetWeapon();
         var maxDamage = weapon.GetMaximumDamage(owner);
         var damage = Dice.Roll(maxDamage);
         Debug.Log($"{owner} rolled {damage} damage from (0-{maxDamage}).");

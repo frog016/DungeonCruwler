@@ -4,10 +4,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Equipment/Default equipment", fileName = "Equipment")]
 public class Equipment : ScriptableObject, IEquipmentItem
 {
+    [SerializeField] private int _stackSize;
     [SerializeField] private EquipmentSlot _slot;
     [SerializeField] private StatsConfig<StatType> _additionalStats;
     [SerializeField] private StatsConfig<CompositeStatType> _additionalCompositeStats;
 
+    public int StackSize => _stackSize;
     public EquipmentSlot Slot => _slot;
 
     public void Activate(IStatsUser statsUser)

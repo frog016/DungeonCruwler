@@ -27,7 +27,7 @@ public class AttackListPresenter : MonoBehaviour
 
     private IEnumerable<AttackPresenter> InitializePresenters()
     {
-        var weapon = _player.Inventory.Weapon;
+        var weapon = _player.GetWeapon();
         foreach (var attack in weapon.Attacks)
         {
             var presenter = Instantiate(_presenterPrefab, transform);

@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(ICharacter))]
 public class RandomAttackGiver : MonoBehaviour, IAttackGiver
@@ -11,7 +13,7 @@ public class RandomAttackGiver : MonoBehaviour, IAttackGiver
     private void Start()
     {
         var character = GetComponent<ICharacter>();
-        _weapon = character.Inventory.Weapon;
+        _weapon = character.GetWeapon();
     }
 
     public bool TryGetAttack(out Attack attack, out CombatEntity target)

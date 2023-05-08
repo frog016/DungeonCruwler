@@ -8,6 +8,7 @@ public class CombatEntity : DamageableUnit, ICombatEntity, ICombatStateMachine
     public IStats Stats { get; private set; }
     public ICompositeStats CompositeStats { get; private set; }
     public IInventory Inventory { get; private set; }
+    public IEquipmentWearer EquipmentWearer { get; private set; }
     public ICombatState Current { get; private set; }
     public IAttackGiver AttackGiver { get; private set; }
     
@@ -22,7 +23,8 @@ public class CombatEntity : DamageableUnit, ICombatEntity, ICombatStateMachine
         CompositeStats = character.CompositeStats;
         Inventory = character.Inventory;
         Team = character.Team;
-        
+        EquipmentWearer = character.EquipmentWearer;
+
         MaxHealth = CompositeStats.GetStat(CompositeStatType.Health);
         Health = MaxHealth;
     }
