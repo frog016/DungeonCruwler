@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class EquipmentWearer : IEquipmentWearer
@@ -6,8 +7,8 @@ public class EquipmentWearer : IEquipmentWearer
 
     public void Equip(IEquipmentItem item)
     {
-        if (_equipment.TryGetValue(item.Slot, out var equippedItem))
-            Remove(equippedItem);
+        if (_equipment.ContainsKey(item.Slot))
+            throw new InvalidOperationException("Remove equipped item before equipping new.");
 
         _equipment.Add(item.Slot, item);
     }
@@ -20,5 +21,10 @@ public class EquipmentWearer : IEquipmentWearer
     public bool TryGetItem(EquipmentSlot slot, out IEquipmentItem item)
     {
         return _equipment.TryGetValue(slot, out item);
+    }
+
+    public IEnumerable<IEquipmentItem> GetAll()
+    {
+        return _equipment.Values;
     }
 }

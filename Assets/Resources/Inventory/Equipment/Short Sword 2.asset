@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33d8a1cefaf5b1a40a4a3f9595162165, type: 3}
-  m_Name: Short Sword
+  m_Name: Short Sword 2
   m_EditorClassIdentifier: 
   _stackSize: 0
   _slot: 4

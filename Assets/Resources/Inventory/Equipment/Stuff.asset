@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d8a1cefaf5b1a40a4a3f9595162165, type: 3}
   m_Name: Stuff
   m_EditorClassIdentifier: 
-  _slot: 6
+  _stackSize: 0
+  _slot: 5
   _additionalStats:
     _modificationStats: []
   _additionalCompositeStats:
@@ -21,10 +22,10 @@ MonoBehaviour:
   _damageType: 1
   _requiredStats:
   - _stat: 3
-    _requiredCount: 18
+    _count: 0
     _usagePercentage: 0.15
   - _stat: 3
-    _requiredCount: 13
+    _count: 0
     _usagePercentage: 0.07
   _attacks:
   - _damageThreshold: 0

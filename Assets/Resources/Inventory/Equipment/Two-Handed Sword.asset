@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d8a1cefaf5b1a40a4a3f9595162165, type: 3}
   m_Name: Two-Handed Sword
   m_EditorClassIdentifier: 
-  _slot: 6
+  _stackSize: 0
+  _slot: 5
   _additionalStats:
     _modificationStats: []
   _additionalCompositeStats:
@@ -21,7 +22,7 @@ MonoBehaviour:
   _damageType: 0
   _requiredStats:
   - _stat: 0
-    _requiredCount: 0
+    _count: 0
     _usagePercentage: 0.1
   _attacks:
   - _damageThreshold: 0

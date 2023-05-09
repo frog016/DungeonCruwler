@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Equipment/Default equipment", fileName = "Equipment")]
@@ -11,6 +12,8 @@ public class Equipment : ScriptableObject, IEquipmentItem
 
     public int StackSize => _stackSize;
     public EquipmentSlot Slot => _slot;
+    public IEnumerable<(StatType, int)> AdditionalStats => _additionalStats.Stats;
+    public IEnumerable<(CompositeStatType, int)> AdditionalCompositeStats => _additionalCompositeStats.Stats;
 
     public void Activate(IStatsUser statsUser)
     {
