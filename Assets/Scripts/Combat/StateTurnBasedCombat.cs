@@ -10,11 +10,11 @@ public class StateTurnBasedCombat : MonoBehaviour, ITurnBasedCombat
     public event Action<ICombatEntity> CombatEnded;
     public IEnumerable<ICombatEntity> Fighters => _stateMachines;
 
-    private ICombatTurnPlanner _turnPlanner;
+    private ITurnPlanner _turnPlanner;
     private CombatEntity[] _stateMachines;
     private Coroutine _combatCoroutine;
     
-    public void Constructor(ICombatTurnPlanner turnPlanner, CombatEntity[] stateMachines)
+    public void Constructor(ITurnPlanner turnPlanner, CombatEntity[] stateMachines)
     {
         _turnPlanner = turnPlanner;
         _stateMachines = stateMachines;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-public class AgilityCombatTurnPlanner : ICombatTurnPlanner
+public class AgilityTurnPlanner : ITurnPlanner
 {
     public IEnumerable<T> PlaneTurnSequence<T>(T[] entities) where T : IStatsUser
     {

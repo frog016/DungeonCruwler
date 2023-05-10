@@ -8,14 +8,15 @@ public class InventoryUI : UIPanel
     [SerializeField] private ItemCellGrid _itemGrid;
     [SerializeField] private EquipmentCellGrid _equipmentGrid;
     [SerializeField] private ItemView _itemViewPrefab;
+    [SerializeField] private StatsPanel _statsPanel;
 
     public IInventory Inventory;
     public IEquipmentWearer Wearer;
 
-    public void Constructor(IItemUser itemUser)
+    public void Constructor(ICharacter character)
     {
-        Inventory = itemUser.Inventory;
-        Wearer = itemUser.EquipmentWearer;
+        Inventory = character.Inventory;
+        Wearer = character.EquipmentWearer;
 
         InitializeGrid(() => Inventory
             .GetAll()
@@ -23,6 +24,8 @@ public class InventoryUI : UIPanel
         InitializeGrid(() => Wearer
             .GetAll()
             .Select(equipment => (equipment as IItem, _equipmentGrid.Cells.First(cell => equipment.Slot == cell.Slot))));
+
+        _statsPanel.Constructor(character);
     }
 
     private void InitializeGrid<TCell>(Func<IEnumerable<(IItem, TCell)>> mapper) where TCell : UIElementCell

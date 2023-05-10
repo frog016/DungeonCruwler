@@ -5,6 +5,11 @@ public class EquipmentWearer : IEquipmentWearer
 {
     private readonly Dictionary<EquipmentSlot, IEquipmentItem> _equipment;
 
+    public EquipmentWearer()
+    {
+        _equipment = new Dictionary<EquipmentSlot, IEquipmentItem>();
+    }
+
     public void Equip(IEquipmentItem item)
     {
         if (_equipment.ContainsKey(item.Slot))
