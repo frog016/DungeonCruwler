@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Item", fileName = "ItemData")]
-public class ItemData : ScriptableObject
+[Serializable]
+public class DescriptionData
 {
     [Header("Description")]
     [SerializeField] private string _name;

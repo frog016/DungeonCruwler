@@ -484,5 +484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57987039742116d428c6f6f5e06c0933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _closeOnAwake: 1
   _titleText: {fileID: 3849547819902625109}
   _descriptionText: {fileID: 3849547819648784014}

@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class UIInventoryPanel : UIPanel
 {
@@ -11,9 +12,13 @@ public class UIInventoryPanel : UIPanel
 
     public ICharacter Owner { get; private set; }
 
-    public void Constructor(ICharacter character)
+    private IGameObjectFactory _factory;
+
+    [Inject]
+    public void Constructor(ICharacter character, IGameObjectFactory factory)
     {
         Owner = character;
+        _factory = factory;
     }
 
     private void Start()
@@ -73,7 +78,7 @@ public class UIInventoryPanel : UIPanel
 
     private ItemUiContainer CreateItemUiContainer(IItem item)
     {
-        var itemContainer = Instantiate(_itemUiContainerPrefab);
+        var itemContainer = _factory.CreateFromComponent(_itemUiContainerPrefab);
         itemContainer.Initialize(item as ScriptableItemContainer, Owner);
         return itemContainer;
     }

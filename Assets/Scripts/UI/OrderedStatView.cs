@@ -9,7 +9,7 @@ public abstract class OrderedStatView<TStat> : MonoBehaviour where TStat : Enum
 
     public TStat Stat => _stat;
 
-    public void ChangeText(int value)
+    public void Initialize(int value)
     {
         _value.text = $"{value}";
     }

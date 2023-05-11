@@ -13,6 +13,6 @@ public class ItemUiContainer : MonoBehaviour
         Item = item;
         Owner = owner;
 
-        _itemNameText.text = item.ToString();
+        _itemNameText.text = item.Data.Name;
     }
 }

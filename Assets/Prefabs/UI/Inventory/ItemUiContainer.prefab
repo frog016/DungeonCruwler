@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 557535052791181054}
   - component: {fileID: 557535052791181024}
   - component: {fileID: 557535052791181025}
-  - component: {fileID: 557535052791181026}
   - component: {fileID: 557535052791181027}
   - component: {fileID: 6728138036148568252}
   m_Layer: 5
-  m_Name: ItemView
+  m_Name: ItemUiContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,18 +79,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!225 &557535052791181026
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557535052791181055}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!114 &557535052791181027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721afa64103966f4396aa9bd1118228b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tooltips: []
 --- !u!1 &4756831130638041516
 GameObject:
   m_ObjectHideFlags: 0

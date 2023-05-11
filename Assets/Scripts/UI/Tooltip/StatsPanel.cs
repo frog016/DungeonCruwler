@@ -18,7 +18,7 @@ public class StatsPanel : MonoBehaviour
     {
         var statsViewPairs = MapStatView(stats, views);
         foreach (var (statValuePair, view) in statsViewPairs)
-            view.ChangeText(statValuePair.Item2);
+            view.Initialize(statValuePair.Item2);
     }
 
     private static IEnumerable<Tuple<(TStat, int), OrderedStatView<TStat>>> MapStatView<TStat>(IStats<TStat> stats,

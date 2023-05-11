@@ -386,7 +386,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1552466733534234565}
   - component: {fileID: 1552466733534234564}
-  - component: {fileID: 1552466733534234563}
+  - component: {fileID: 7067869347094985349}
+  - component: {fileID: 3716634481515328134}
   m_Layer: 5
   m_Name: Simple Item Description Container
   m_TagString: Untagged
@@ -441,7 +442,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1552466733534234563
+--- !u!114 &7067869347094985349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -450,8 +451,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1552466733534234566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57987039742116d428c6f6f5e06c0933, type: 3}
+  m_Script: {fileID: 11500000, guid: 069c33507bf2b21469b7871b51e2ce41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _titleText: {fileID: 1552466732808227624}
-  _descriptionText: {fileID: 1552466732290687836}
+  _closeOnAwake: 1
+  _itemNameText: {fileID: 1552466732808227624}
+  _description: {fileID: 1552466732290687836}
+--- !u!225 &3716634481515328134
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552466733534234566}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

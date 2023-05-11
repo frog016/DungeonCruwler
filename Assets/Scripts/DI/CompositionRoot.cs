@@ -19,7 +19,6 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private MonoBehaviour[] _entities;
 
     [Header("UI")]
-    [SerializeField] private UIInventoryPanel _uiInventoryPanel;
     [SerializeField] private StatsPanel[] _statsPanels;
 
     private void Awake()
@@ -59,7 +58,6 @@ public class CompositionRoot : MonoBehaviour
 
     private void BindUI()
     {
-        _uiInventoryPanel.Constructor(_player);
         foreach (var statsPanel in _statsPanels)
         {
             statsPanel.Constructor(_player);

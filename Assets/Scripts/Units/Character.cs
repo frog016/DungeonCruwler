@@ -19,10 +19,20 @@ public class Character : DamageableUnit, ICharacter
     {
         Stats = new Stats(_baseStats.Stats);
         CompositeStats = new CompositeStats(Stats, _compositeStats.Stats, _compositeStats.InfluenceStats);
-        EquipmentWearer = new EquipmentWearer(Inventory);
-        EquipmentWearer.Equip(_inventory.GetAll().First() as IEquipmentItem);
+        EquipmentWearer = InitializeEquipment();
 
         MaxHealth = CompositeStats.GetStat(CompositeStatType.Health);
         Health = MaxHealth;
+    }
+
+    private IEquipmentWearer InitializeEquipment()
+    {
+        var equipmentWearer = new EquipmentWearer(Inventory);
+        var items = Inventory.GetAll().ToArray();
+        foreach (var item in items)
+            if (item is IEquipmentItem equipment)
+                equipmentWearer.Equip(equipment);
+        
+        return equipmentWearer;
     }
 }
