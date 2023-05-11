@@ -3,18 +3,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AttackPresenter : MonoBehaviour
+public class AttackButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _attackNameText;
 
+    public Attack Attack { get; private set; }
+    public ICharacter Owner { get; private set; }
     public event Action<Attack> AttackChosen;
 
-    private Attack _attack;
-
-    public void Initialize(Attack attack)
+    public void Initialize(Attack attack, ICharacter owner)
     {
-        _attack = attack;
+        Attack = attack;
+        Owner = owner;
         _attackNameText.text = attack.name;
     }
 
@@ -22,5 +23,5 @@ public class AttackPresenter : MonoBehaviour
 
     private void OnDisable() => _button.onClick.RemoveListener(Invoke);
 
-    private void Invoke() => AttackChosen?.Invoke(_attack);
+    private void Invoke() => AttackChosen?.Invoke(Attack);
 }

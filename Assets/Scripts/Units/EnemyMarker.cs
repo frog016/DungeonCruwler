@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class EnemyMarker : DamageableUnit, ICharacter
@@ -18,7 +19,8 @@ public class EnemyMarker : DamageableUnit, ICharacter
     {
         Stats = new Stats(_baseStats.Stats);
         CompositeStats = new CompositeStats(Stats, _compositeStats.Stats, _compositeStats.InfluenceStats);
-        EquipmentWearer = new EquipmentWearer();
+        EquipmentWearer = new EquipmentWearer(Inventory);
+        EquipmentWearer.Equip(_inventory.GetAll().First() as IEquipmentItem);
 
         MaxHealth = CompositeStats.GetStat(CompositeStatType.Health);
         Health = MaxHealth;

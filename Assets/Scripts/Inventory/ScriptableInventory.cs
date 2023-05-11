@@ -1,10 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Inventory", fileName = "Inventory")]
 public class ScriptableInventory : ScriptableObject, IInventory
 {
-    private readonly IInventory _inventory = new InfiniteInventory();
+    [SerializeField] private Equipment[] _equipments;
+    [SerializeField] private ScriptableItem[] _items;
+
+    private IInventory _inventory;
+
+    private void OnEnable()
+    {
+        _inventory = new InfiniteInventory();
+        var items = _equipments.Cast<IItem>().Concat(_items);
+        foreach (var item in items)
+            Add(item);
+    }
 
     public void Add(IItem element)
     {

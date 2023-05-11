@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4791405215566645662}
   - component: {fileID: 4791405215566645659}
+  - component: {fileID: 112715356162883741}
   - component: {fileID: 4791405215566645663}
   - component: {fileID: 4791405215566645656}
   - component: {fileID: 4791405215566645657}
@@ -135,8 +136,21 @@ MonoBehaviour:
   _team: 1
   _baseStats: {fileID: 0}
   _compositeStats: {fileID: 0}
-  _inventory:
-    _weapon: {fileID: 0}
+  _inventory: {fileID: 112715356162883741}
+--- !u!114 &112715356162883741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4791405215566645661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bcc425a0f644ea9f87dd7bbcd450de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _equipments: []
+  _items: []
 --- !u!114 &4791405215566645663
 MonoBehaviour:
   m_ObjectHideFlags: 0

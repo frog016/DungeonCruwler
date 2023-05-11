@@ -13,6 +13,7 @@ public class EditorInventory : MonoBehaviour, IInventory
 
     private void Awake()
     {
+        _inventory = new InfiniteInventory();
         var items = _equipments.Cast<IItem>().Concat(_items);
         foreach (var item in items)
             Add(item);

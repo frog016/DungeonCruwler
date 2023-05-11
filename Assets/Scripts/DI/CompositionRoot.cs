@@ -19,7 +19,7 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private MonoBehaviour[] _entities;
 
     [Header("UI")]
-    [SerializeField] private InventoryUI _inventoryUI;
+    [SerializeField] private UIInventoryPanel _uiInventoryPanel;
     [SerializeField] private StatsPanel _statsPanel;
 
     private void Awake()
@@ -59,7 +59,7 @@ public class CompositionRoot : MonoBehaviour
 
     private void BindUI()
     {
-        _inventoryUI.Constructor(_player);
+        _uiInventoryPanel.Constructor(_player);
         _statsPanel.Constructor(_player);
     }
 }

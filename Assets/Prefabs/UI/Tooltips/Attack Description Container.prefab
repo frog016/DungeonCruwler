@@ -611,6 +611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0649b965c2a36ed42aa50fdf1afa4c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _closeOnAwake: 1
+  _blackout: {fileID: 0}
   _titleText: {fileID: 2605751222793094537}
   _damageText: {fileID: 2605751221761655080}
   _effectView: {fileID: 2605751222228749974}
