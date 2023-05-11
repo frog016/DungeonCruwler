@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 557535052791181025}
   - component: {fileID: 557535052791181026}
   - component: {fileID: 557535052791181027}
-  - component: {fileID: 5679052570773838494}
+  - component: {fileID: 6728138036148568252}
   m_Layer: 5
   m_Name: ItemView
   m_TagString: Untagged
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemNameText: {fileID: 7514583265450344709}
---- !u!114 &5679052570773838494
+--- !u!114 &6728138036148568252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,11 +114,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 557535052791181055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc880a2c219f8a4ca1e9c706b5f8ad1, type: 3}
+  m_Script: {fileID: 11500000, guid: 721afa64103966f4396aa9bd1118228b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _alphaColor: 0.5
-  _canvas: {fileID: 0}
+  _tooltips: []
 --- !u!1 &4756831130638041516
 GameObject:
   m_ObjectHideFlags: 0

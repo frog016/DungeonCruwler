@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EquipmentTooltip : ItemTooltip<Equipment>
+public class EquipmentTooltip : ItemTooltip
 {
     [SerializeField] private StatView[] _statViews;
 
@@ -13,11 +13,10 @@ public class EquipmentTooltip : ItemTooltip<Equipment>
         _statViews.Apply(view => view.gameObject.SetActive(false));
     }
 
-    public override void Initialize(string itemName, Equipment item, ICharacter itemOwner)
+    public override void Initialize(ScriptableItemContainer item, ICharacter owner)
     {
-        base.Initialize(itemName, item, itemOwner);
-
-        var statViewPairs = GetAllStats(item)
+        base.Initialize(item, owner);
+        var statViewPairs = GetAllStats(item as Equipment)
             .Zip(_statViews, Tuple.Create);
         foreach (var (statValuePair, view) in statViewPairs)
             ShowStatView(view, statValuePair);

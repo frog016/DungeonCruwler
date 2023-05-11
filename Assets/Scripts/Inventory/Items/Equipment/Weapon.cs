@@ -26,7 +26,7 @@ public class Weapon : Equipment
     {
         var attackData = _attacks.FirstOrDefault(data => data.Attack.GetType() == attack.GetType());
         if (attack == null)
-            throw new ArgumentException($"Weapon ({name}) doesn't contains attack with type {typeof(T)}.");
+            throw new ArgumentException($"Weapon ({Data.Name}) doesn't contains attack with type {typeof(T)}.");
 
         return attackData;
     }

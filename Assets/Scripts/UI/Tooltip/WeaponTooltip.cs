@@ -4,7 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class WeaponTooltip : ItemTooltip<Weapon>
+public class WeaponTooltip : ItemTooltip
 {
     [SerializeField] private TextMeshProUGUI _slotText;
     [SerializeField] private TextMeshProUGUI _requiredText;
@@ -19,11 +19,13 @@ public class WeaponTooltip : ItemTooltip<Weapon>
         _attackTooltips.Apply(tooltip => tooltip.gameObject.SetActive(false));
     }
 
-    public override void Initialize(string itemName, Weapon item, ICharacter itemOwner)
+    public override void Initialize(ScriptableItemContainer item, ICharacter owner)
     {
-        base.Initialize(itemName, item, itemOwner);
-        InitializeDescription(item, itemOwner);
-        InitializeAttackTooltips(item);
+        base.Initialize(item, owner);
+
+        var weapon = item as Weapon;
+        InitializeDescription(weapon, owner);
+        InitializeAttackTooltips(weapon);
     }
 
     private void InitializeDescription(Weapon item, IStatsUser itemOwner)

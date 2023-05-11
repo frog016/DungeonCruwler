@@ -8,27 +8,27 @@ public abstract class UIGrid<TCell> : MonoBehaviour where TCell : UICell
 
     public List<TCell> Cells => _cells;
 
-    public void AddContent(ItemView content)
+    public void AddContent(ItemUiContainer content)
     {
         foreach (var emptyCell in GetEmptyCells(content))
             AddContentTo(content, emptyCell);
     }
 
-    public void AddContentTo(ItemView content, TCell cell)
+    public void AddContentTo(ItemUiContainer content, TCell cell)
     {
         cell.Content = content;
         PlaceInParent(content, cell.transform);
     }
 
-    public void RemoveContent(ItemView content)
+    public void RemoveContent(ItemUiContainer content)
     {
         foreach (var cell in GetCellsWithContent(content))
             _cells.Remove(cell);
     }
 
-    public abstract TCell[] GetEmptyCells(ItemView content);
+    public abstract TCell[] GetEmptyCells(ItemUiContainer content);
 
-    private IEnumerable<TCell> GetCellsWithContent(ItemView content)
+    private IEnumerable<TCell> GetCellsWithContent(ItemUiContainer content)
     {
         return _cells
             .Where(cell => cell.Content.Item == content.Item)

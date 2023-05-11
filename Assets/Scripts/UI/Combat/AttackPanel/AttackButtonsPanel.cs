@@ -33,9 +33,6 @@ public class AttackButtonsPanel : MonoBehaviour
         {
             var attackButton = Instantiate(_buttonPrefab, _root);
             attackButton.Initialize(attack, _player);
-
-            var tooltipDisplay = attackButton.GetComponent<AttackTooltipDisplay>();
-            tooltipDisplay.Constructor(_tooltip);
             yield return attackButton;
         }
     }

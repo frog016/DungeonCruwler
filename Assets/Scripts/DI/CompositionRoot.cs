@@ -20,7 +20,7 @@ public class CompositionRoot : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private UIInventoryPanel _uiInventoryPanel;
-    [SerializeField] private StatsPanel _statsPanel;
+    [SerializeField] private StatsPanel[] _statsPanels;
 
     private void Awake()
     {
@@ -60,6 +60,9 @@ public class CompositionRoot : MonoBehaviour
     private void BindUI()
     {
         _uiInventoryPanel.Constructor(_player);
-        _statsPanel.Constructor(_player);
+        foreach (var statsPanel in _statsPanels)
+        {
+            statsPanel.Constructor(_player);
+        }
     }
 }

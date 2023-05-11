@@ -6,7 +6,7 @@ using UnityEngine;
 public class ScriptableInventory : ScriptableObject, IInventory
 {
     [SerializeField] private Equipment[] _equipments;
-    [SerializeField] private ScriptableItem[] _items;
+    [SerializeField] private ConsumableItem[] _items;
 
     private IInventory _inventory;
 

@@ -3,7 +3,7 @@ using System.Linq;
 
 public class UIEquipmentGrid : UIGrid<UIEquipmentCell>
 {
-    public override UIEquipmentCell[] GetEmptyCells(ItemView content)
+    public override UIEquipmentCell[] GetEmptyCells(ItemUiContainer content)
     {
         if (content.Item is not IEquipmentItem equipment)
             throw new ArgumentException($"Invalid item. {content.Item} can't be placed in equipment slot.");

@@ -1,12 +1,12 @@
 using TMPro;
 using UnityEngine;
 
-public abstract class ItemTooltip<TItem> : UIPanel where TItem : IItem
+public abstract class ItemTooltip : UIPanel
 {
-    [SerializeField] private TextMeshProUGUI _titleText;
+    [SerializeField] private TextMeshProUGUI _itemNameText;
 
-    public virtual void Initialize(string itemName, TItem item, ICharacter itemOwner)
+    public virtual void Initialize(ScriptableItemContainer item, ICharacter owner)
     {
-        _titleText.text = itemName;
+        _itemNameText.text = item.Data.Name;
     }
 }

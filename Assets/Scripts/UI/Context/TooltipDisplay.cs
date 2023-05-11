@@ -1,34 +1,26 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class TooltipDisplay<T> : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler where T : UIPanel
+public abstract class TooltipDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private T _tooltip;
     private Canvas _canvas;
-
-    public void Constructor(T tooltip)
-    {
-        _tooltip = tooltip;
-    }
 
     protected virtual void Awake()
     {
         _canvas = GetComponentInParent<Canvas>();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public virtual void OnPointerEnter(PointerEventData eventData)
     {
-         InitializeTooltip(_tooltip);
-        _tooltip.Open();
+    }
 
+    public virtual void OnPointerExit(PointerEventData eventData)
+    {
+    }
+
+    protected void SetTooltipPosition(PointerEventData eventData, RectTransform tooltip)
+    {
         var position = eventData.position / _canvas.scaleFactor;
-        _tooltip.GetComponent<RectTransform>().anchorMin = position;
+        tooltip.anchorMin = position;
     }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _tooltip.Close();
-    }
-
-    protected abstract void InitializeTooltip(T tooltip);
 }

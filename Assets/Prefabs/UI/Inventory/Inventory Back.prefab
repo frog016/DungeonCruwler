@@ -6467,10 +6467,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _closeOnAwake: 1
-  _blackout: {fileID: 0}
   _itemGrid: {fileID: 2104918117}
   _equipmentGrid: {fileID: 776148069}
-  _itemViewPrefab: {fileID: 557535052791181027, guid: 5b6548f216462e140b9cb05146d1c96e, type: 3}
+  _itemUiContainerPrefab: {fileID: 557535052791181027, guid: 5b6548f216462e140b9cb05146d1c96e, type: 3}
+  _blackout: {fileID: 0}
 --- !u!1 &6120714584821939840
 GameObject:
   m_ObjectHideFlags: 0

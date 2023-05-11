@@ -7,7 +7,7 @@ using UnityEngine;
 public class EditorInventory : MonoBehaviour, IInventory
 {
     [SerializeField] private Equipment[] _equipments;
-    [SerializeField] private ScriptableItem[] _items;
+    [SerializeField] private ConsumableItem[] _items;
 
     private IInventory _inventory;
 
