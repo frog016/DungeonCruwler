@@ -1,31 +1,28 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+﻿using System;
+using System.Linq;
+using UnityEngine;
 
-public abstract class ContextMenu<T> : UIPanel, IPointerDownHandler
+public class ContextMenu : UIPanel
 {
-    [SerializeField] protected T _contextOwner;
-    [SerializeField] private Canvas _canvas;
-    [SerializeField] private Button[] _actionButtons;
+    [SerializeField] private ContextButton[] _buttons;
 
-    private RectTransform _rectTransform;
-
-    private void Awake()
+    public void Initialize(string[] names, Action[] actions)
     {
-        _rectTransform = GetComponent<RectTransform>();
+        var tuples = names
+            .Zip(actions, Tuple.Create)
+            .Zip(_buttons, (tuple, button) => Tuple.Create(tuple.Item1, tuple.Item2, button));
+
+        foreach (var (actionName, action, button) in tuples)
+        {
+            button.gameObject.SetActive(true);
+            button.Initialize(actionName, action);
+        }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public override void Close()
     {
-        var position = eventData.position / _canvas.scaleFactor;
-        SetPosition(position);
-        SubscribeActions(_actionButtons);
-    }
-
-    protected abstract void SubscribeActions(Button[] buttons);
-
-    private void SetPosition(Vector2 position)
-    {
-        _rectTransform.anchorMin = position;
+        base.Close();
+        foreach (var button in _buttons)
+            button.gameObject.SetActive(false);
     }
 }

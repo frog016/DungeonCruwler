@@ -11,6 +11,8 @@ public class UIInventoryPanel : UIPanel
     [SerializeField] private GameObject _blackout;
 
     public ICharacter Owner { get; private set; }
+    public UIEquipmentGrid EquipmentGrid => _equipmentGrid;
+    public UIItemGrid ItemGrid => _itemGrid;
 
     private IGameObjectFactory _factory;
 
