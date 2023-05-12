@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6677620945051611286}
-  - component: {fileID: 6677620945051611281}
+  - component: {fileID: 3314205833634732919}
   - component: {fileID: 6677620945051611287}
   - component: {fileID: 6677620945051611280}
   - component: {fileID: 6677620945051611282}
@@ -119,7 +119,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6677620945051611281
+--- !u!114 &3314205833634732919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,15 +128,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6677620945051611285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d04ad6a0bbd0d94198f4487ef960c93, type: 3}
+  m_Script: {fileID: 11500000, guid: f26fc341431872f48a89537310f304a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actions:
-  - {fileID: 11400000, guid: 33c1eb5e771b89a488225321ead0abf6, type: 2}
-  - {fileID: 11400000, guid: 2183bff5e3becf94cb6f08a48d29a517, type: 2}
-  _hiddenAction: {fileID: 11400000, guid: c92343fd9aebc59469729f0b9ce16f93, type: 2}
-  _data: {fileID: 0}
-  _effect: {fileID: 0}
+  _event: {fileID: 11400000, guid: 51c3c606729fa374e9e0a590a598ce90, type: 2}
+  _hiddenAction: {fileID: 11400000, guid: 472b5c987d2664b4093cd69c12ebc265, type: 2}
 --- !u!114 &6677620945051611287
 MonoBehaviour:
   m_ObjectHideFlags: 0

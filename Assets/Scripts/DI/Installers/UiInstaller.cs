@@ -8,6 +8,7 @@ public class UiInstaller : MonoInstaller
     [SerializeField] private ContextMenu _contextMenu;
     [SerializeField] private UIInventoryPanel _inventoryPanel;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private EventPanel _eventPanel;
 
     public override void InstallBindings()
     {
@@ -16,6 +17,14 @@ public class UiInstaller : MonoInstaller
         BindContextMenu();
         BindInventoryPanel();
         BindCanvas();
+        BindPanel();
+    }
+
+    private void BindPanel()
+    {
+        Container
+            .BindInstance(_eventPanel)
+            .AsSingle();
     }
 
     private void BindItemTooltips()

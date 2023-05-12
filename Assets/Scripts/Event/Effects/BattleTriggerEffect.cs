@@ -5,7 +5,7 @@ public class BattleTriggerEffect : ScriptableTemporaryEffect
 {
     [SerializeField] private int _damage;
 
-    private BattleEvent[] _events;
+    //private BattleEvent[] _events;
 
     //[Inject]
     //public void Constructor(IInteractableEvent[] events)
@@ -15,13 +15,13 @@ public class BattleTriggerEffect : ScriptableTemporaryEffect
 
     private void OnEnable() // TODO: Use Zenject here.
     {
-        _events = FindObjectsOfType<BattleEvent>();
-        _events.Apply(interactableEvent => interactableEvent.Interacted += DealDamage);
+        //_events = FindObjectsOfType<BattleEvent>();
+        //_events.Apply(interactableEvent => interactableEvent.Interacted += DealDamage);
     }
 
     private void OnDisable()
     {
-        _events.Apply(interactableEvent => interactableEvent.Interacted -= DealDamage);
+        //_events.Apply(interactableEvent => interactableEvent.Interacted -= DealDamage);
     }
 
     private void DealDamage(ICharacter target)
