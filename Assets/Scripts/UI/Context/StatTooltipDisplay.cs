@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
@@ -33,6 +34,7 @@ public class StatTooltipDisplay : TooltipDisplay
 
         var data = _storage.GetValue(view.Stat);
         _tooltip.Initialize(data.Name, data.Description);
+        _tooltip.Open();
 
         return true;
 
@@ -40,8 +42,7 @@ public class StatTooltipDisplay : TooltipDisplay
 
     private bool TryGetStatView<TStat>(PointerEventData eventData, out OrderedStatView<TStat> view) where TStat : Enum
     {
-        OrderedStatView<TStat> statView = null;
-        _ = eventData.hovered.FirstOrDefault(obj => obj.TryGetComponent<OrderedStatView<TStat>>(out statView));
+        _ = eventData.pointerCurrentRaycast.gameObject.TryGetComponent(out OrderedStatView<TStat> statView);
         view = statView;
 
         return view != null;
