@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a65766f9132c740b69754e69c85bec, type: 3}
   m_Name: CancelEventAction
   m_EditorClassIdentifier: 
+  _data:
+    _name: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C"
+    _description: 

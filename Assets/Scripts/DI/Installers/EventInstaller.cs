@@ -3,7 +3,7 @@ using Zenject;
 
 public class EventInstaller : MonoInstaller
 {
-    [SerializeField] private InteractableEventHolder[] _eventHolders;
+    [SerializeField] private EventBehaviour[] _traps;
 
     public override void InstallBindings()
     {
@@ -13,8 +13,8 @@ public class EventInstaller : MonoInstaller
 
     private void BindHolders()
     {
-        var type = typeof(InteractableEventHolder);
-        foreach (var holder in _eventHolders)
+        var type = typeof(EventBehaviour);
+        foreach (var holder in _traps)
         {
             Container
                 .Bind(type)

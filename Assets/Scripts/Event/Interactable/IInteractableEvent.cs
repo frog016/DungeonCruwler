@@ -1,8 +1,7 @@
 ﻿using System;
 
-public interface IInteractableEvent : IEventActionOwner
+public interface IInteractableEvent
 {
-    int ComplexityClass { get; }
     event Action<InteractionEventData> Interacted;
     void Interact(ICharacter character);
 }

@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01f935ad2f3c5749bc8de87820fc9b5, type: 3}
   m_Name: DestroyTrapAction
   m_EditorClassIdentifier: 
-  _statToCheck: 0
-  _damage: 3
+  _data:
+    _name: "\u0423\u043D\u0438\u0447\u0442\u043E\u0436\u0438\u0442\u044C"
+    _description: 
+  _physicStatToCheck: 0
+  _magicStatToCheck: 3
+  _mapper: {fileID: 11400000, guid: d6df0b61183c09b4f8f728d92f33a024, type: 2}

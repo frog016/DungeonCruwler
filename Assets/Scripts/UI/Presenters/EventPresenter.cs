@@ -3,13 +3,13 @@ using Zenject;
 
 public class EventPresenter : MonoBehaviour
 {
-    private InteractableEventHolder[] _holders;
+    private EventBehaviour[] _holders;
     private EventPanel _eventView;
 
     [Inject]
-    public void Constructor(InteractableEventHolder[] holders, EventPanel view)
+    public void Constructor(EventBehaviour[] eventBehaviours, EventPanel view)
     {
-        _holders = holders;
+        _holders = eventBehaviours;
         _eventView = view;
     }
 
@@ -27,7 +27,7 @@ public class EventPresenter : MonoBehaviour
 
     private void PresentEventPanel(InteractionEventData data)
     {
-        _eventView.Initialize(data.Event as ScriptableEvent, data.InteractedWith, data.EventObject);
+        _eventView.Initialize(data.EventObject, data.InteractedWith);
         _eventView.Open();
     }
 }

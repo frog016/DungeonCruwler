@@ -9,15 +9,25 @@ public class EventPanel : UIPanel
     [SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private EventActionContainer[] _actionContainers;
 
-    public void Initialize(ScriptableEvent owner, ICharacter character, InteractableEventHolder holder)
+    public void Initialize(EventBehaviour owner, ICharacter character)
     {
         _eventNameText.text = owner.DescriptionData.Name;
         _descriptionText.text = owner.DescriptionData.Description;
-        var actionContainerPairs = owner.Actions.Zip(_actionContainers, Tuple.Create);
+
+        var actionContainerPairs = owner.Actions.Cast<ScriptableEventAction>().Zip(_actionContainers, Tuple.Create);
         foreach (var (action, container) in actionContainerPairs)
         {
-            container.Initialize(action.Chance, action.ToString(), () => action.Invoke(holder, character));
+            var chance = action is NegativeEventAction negativeAction
+                ? negativeAction.CalculateChance(owner as HiddenEventBehaviour, character)
+                : 1f;
+
+            container.Initialize(ConvertChanceToPercent(chance), action.DescriptionData.Name, () => action.Invoke(owner, character));
             container.ActionCalled += Close;
         }
+    }
+
+    private int ConvertChanceToPercent(float chance)
+    {
+        return Mathf.RoundToInt(chance * 100);
     }
 }

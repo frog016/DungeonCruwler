@@ -1,31 +1,19 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Event/Actions/Bypass Trap", fileName = "BypassTrapAction")]
-public class BypassTrapAction : VarietyEventAction
+public class BypassTrapAction : NegativeEventAction
 {
-    [SerializeField] private int _damage;
-    [SerializeField] private DamageType _damageType;
-    [SerializeField] private DamageTypeMapper _mapper;
-
-    public override void Invoke(InteractableEventHolder owner, ICharacter target)
+    public override void Invoke(EventBehaviour owner, ICharacter target)
     {
         base.Invoke(owner, target);
-        var trapEvent = CastEventAs<HiddenScriptableEvent>(owner.Event);
-        if (TryOvercomeThreshold(trapEvent, target))
+
+        var hidden = owner as HiddenEventBehaviour;
+        if (TryOvercomeThreshold(hidden, target))
             return;
 
-        target.ApplyDamage(CalculateDamage(target));
-        target.ApplyEffect(trapEvent.Effect);
-        owner.DestroyHolder();
-        MoveCharacterForward(target);
-    }
+        var (damage, defense) = GetEventParameters(hidden, target);
+        DealDamage(target, damage, defense);
 
-    private int CalculateDamage(IStatsUser target)
-    {
-        var defenseType = _mapper.GetValue(_damageType);
-        var defense = target.CompositeStats.GetStat(defenseType);
-        var totalDamage = Mathf.Max(0, _damage - defense);
-
-        return totalDamage;
+        owner.DestroyEvent();
     }
 }

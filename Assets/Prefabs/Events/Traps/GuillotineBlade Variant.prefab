@@ -76,6 +76,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 7283578658383953064, guid: 2653c0c2872896744aecb8ceb17e96eb, type: 3}
+      propertyPath: _damage
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283578658383953064, guid: 2653c0c2872896744aecb8ceb17e96eb, type: 3}
+      propertyPath: _detectionClass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283578658383953064, guid: 2653c0c2872896744aecb8ceb17e96eb, type: 3}
+      propertyPath: _complexityClass
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

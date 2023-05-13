@@ -1,27 +1,20 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Event/Actions/Destroy Trap", fileName = "DestroyTrapAction")]
-public class DestroyTrapAction : VarietyEventAction
+public class DestroyTrapAction : NegativeEventAction
 {
-    [SerializeField] private int _damage;
-
-    public override void Invoke(InteractableEventHolder owner, ICharacter target)
+    public override void Invoke(EventBehaviour owner, ICharacter target)
     {
         base.Invoke(owner, target);
-        var castEvent = CastEventAs<HiddenScriptableEvent>(owner.Event);
-        if (TryOvercomeThreshold(castEvent, target))
+
+        var hidden = owner as HiddenEventBehaviour;
+        if (TryOvercomeThreshold(hidden, target))
         {
-            owner.DestroyHolder();
+            owner.DestroyEvent();
             return;
         }
 
-        target.ApplyDamage(CalculateDamage());
-        MoveCharacterBack(target);
-    }
-
-    private int CalculateDamage()
-    {
-        var totalDamage = _damage / 2;
-        return totalDamage;
+        var (damage, _) = GetEventParameters(hidden, target);
+        DealDamage(target, damage / 2, 0);
     }
 }

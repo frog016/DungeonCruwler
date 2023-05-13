@@ -38,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6677620945051611286, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6677620945051611286, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -80,6 +80,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7622298905672387274, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
+      propertyPath: _damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7622298905672387274, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
+      propertyPath: _damageType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7622298905672387274, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
+      propertyPath: _detectionClass
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7622298905672387274, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
+      propertyPath: _complexityClass
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -114,8 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1363851c9fe314491bd92ab14e1a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loiteringArea:
-    _radius: 0
   _map: {fileID: 0}
 --- !u!114 &6454717587616063467
 MonoBehaviour:

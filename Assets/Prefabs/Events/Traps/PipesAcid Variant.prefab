@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &924258594518791778
+--- !u!1001 &7094495251428724385
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,21 +8,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6677620944589186644, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677620944589186644, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677620944589186646, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6677620944589186646, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d963d780787eab34492489c93b4c6a63, type: 2}
+      objectReference: {fileID: 2100000, guid: 0dd50b0077bed2d4dbf2e8f2623dfe2a, type: 2}
     - target: {fileID: 6677620945051611281, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
       propertyPath: _data
       value: 
-      objectReference: {fileID: 11400000, guid: 0c33c94d179b9ac419a13524aa998cf9, type: 2}
+      objectReference: {fileID: 11400000, guid: d14ab58b0ec647140947a8b038deeb70, type: 2}
     - target: {fileID: 6677620945051611281, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
       propertyPath: _effect
       value: 
-      objectReference: {fileID: 11400000, guid: ee05dc3da9e44854ca647b13302e8ff4, type: 2}
+      objectReference: {fileID: 11400000, guid: 89d321371ebea9d4ca08a8c169998155, type: 2}
     - target: {fileID: 6677620945051611285, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
       propertyPath: m_Name
-      value: WallSpikes Variant
+      value: PipesAcid Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6677620945051611286, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
       propertyPath: m_RootOrder
@@ -67,6 +79,18 @@ PrefabInstance:
     - target: {fileID: 6677620945051611286, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7622298905672387274, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
+      propertyPath: _damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7622298905672387274, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
+      propertyPath: _detectionClass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7622298905672387274, guid: 22976908461dbfd4093ab31f496015ae, type: 3}
+      propertyPath: _complexityClass
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093e2153d8286c5429559254b8b70dd3, type: 3}
   m_Name: BypassTrapAction
   m_EditorClassIdentifier: 
-  _statToCheck: 0
-  _damage: 2
-  _damageType: 0
+  _data:
+    _name: "\u041E\u0431\u043E\u0439\u0442\u0438"
+    _description: 
+  _physicStatToCheck: 1
+  _magicStatToCheck: 4
   _mapper: {fileID: 11400000, guid: d6df0b61183c09b4f8f728d92f33a024, type: 2}

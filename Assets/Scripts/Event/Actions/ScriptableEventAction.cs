@@ -2,16 +2,13 @@
 
 public abstract class ScriptableEventAction : ScriptableObject, IEventAction
 {
-    public int Chance { get; protected set; }
+    [SerializeField] private DescriptionData _data;
 
-    public virtual void Invoke(InteractableEventHolder owner, ICharacter target)
+    public DescriptionData DescriptionData => _data;
+
+    public virtual void Invoke(EventBehaviour owner, ICharacter target)
     {
         target.Interrupted = false;
-    }
-
-    protected T CastEventAs<T>(IInteractableEvent interactableEvent) where T : IInteractableEvent
-    {
-        return (T)interactableEvent;
     }
 
     protected static void MoveCharacterForward(ICharacter character)
