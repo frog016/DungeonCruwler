@@ -50,7 +50,8 @@ public class PathMovement : MonoBehaviour, IPathMovement
         while (time <= 1f)
         {
             time += step * Time.fixedDeltaTime;
-            transform.position = Vector3.Lerp(from, to, time);
+            transform.position = Vector3.Lerp(from, to, time) + new Vector3(0, transform.position.y, 0);
+            transform.forward = (to - from).normalized;
             yield return new WaitForFixedUpdate();
         }
     }

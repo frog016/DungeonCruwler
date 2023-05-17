@@ -16,5 +16,6 @@ public class DestroyTrapAction : NegativeEventAction
 
         var (damage, _) = GetEventParameters(hidden, target);
         DealDamage(target, damage / 2, 0);
+        MoveCharacterBack(target);
     }
 }

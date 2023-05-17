@@ -13,6 +13,7 @@ public class BypassTrapAction : NegativeEventAction
 
         var (damage, defense) = GetEventParameters(hidden, target);
         DealDamage(target, damage, defense);
+        MoveCharacterForward(target);
 
         owner.DestroyEvent();
     }

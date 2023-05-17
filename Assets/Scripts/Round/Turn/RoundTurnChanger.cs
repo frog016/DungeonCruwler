@@ -11,7 +11,7 @@ public class RoundTurnChanger : MonoBehaviour
         _turnSystem = GetComponent<ITurnSystem>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(WaitUntilEntityTurnEnded());
     }

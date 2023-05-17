@@ -119,7 +119,7 @@ Transform:
   m_Children:
   - {fileID: 4791405214502744215}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4791405215566645659
 MonoBehaviour:
@@ -160,14 +160,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4791405215566645661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d598cb055e4fe204f8e8fd414cb1735a, type: 3}
+  m_Script: {fileID: 11500000, guid: 41c96335f1eb1124ba5715ba1dbf7de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actions: []
-  _hiddenAction: {fileID: 0}
-  _mainLevel: {fileID: 0}
-  _battleLevelPrefab: {fileID: 3669336245607747409, guid: 887b0f9dec618f441a3420b4abf2875f, type: 3}
-  _battleLevelPosition: {fileID: 0}
+  _complexityClass: 0
+  _actions:
+  - {fileID: 11400000, guid: b890499efe0237e48b6c421378090149, type: 2}
+  - {fileID: 11400000, guid: 15215158a4da590428ae44674b84466a, type: 2}
+  _descriptionData:
+    _name: "\u041F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A"
+    _description: "\u0412\u044B \u0432\u0441\u0442\u0440\u0435\u0442\u0438\u043B\u0438\u0441\u044C
+      \u0441 \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u043E\u043C."
+  _detectionClass: 0
+  _damage: 0
+  _damageType: 0
+  _hiddenAction: {fileID: 11400000, guid: b890499efe0237e48b6c421378090149, type: 2}
 --- !u!114 &4791405215566645656
 MonoBehaviour:
   m_ObjectHideFlags: 0

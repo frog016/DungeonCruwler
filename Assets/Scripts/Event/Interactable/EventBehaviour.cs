@@ -15,6 +15,7 @@ public class EventBehaviour : MonoBehaviour, IInteractableEvent, IEventActionOwn
 
     public virtual void Interact(ICharacter character)
     {
+        character.Interrupted = true;
         Interacted?.Invoke(new InteractionEventData(character, this, this));
     }
 

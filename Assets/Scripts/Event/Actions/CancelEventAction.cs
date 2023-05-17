@@ -7,7 +7,7 @@ public class CancelEventAction : ScriptableEventAction
     private EventPanel _eventPanel;
 
     [Inject]
-    public void Constructor(EventPanel eventPanel)  // TODO : Inject this
+    public void Constructor(EventPanel eventPanel)
     {
         _eventPanel = eventPanel;
     }
@@ -15,7 +15,7 @@ public class CancelEventAction : ScriptableEventAction
     public override void Invoke(EventBehaviour owner, ICharacter target)
     {
         base.Invoke(owner, target);
-        MoveCharacterBack(target);  // TODO : Add this to another actions
+        MoveCharacterBack(target);
         _eventPanel.Close();
     }
 }

@@ -21,9 +21,17 @@ public class EventPanel : UIPanel
                 ? negativeAction.CalculateChance(owner as HiddenEventBehaviour, character)
                 : 1f;
 
+            container.gameObject.SetActive(true);
             container.Initialize(ConvertChanceToPercent(chance), action.DescriptionData.Name, () => action.Invoke(owner, character));
             container.ActionCalled += Close;
         }
+    }
+
+    public override void Close()
+    {
+        base.Close();
+        foreach (var container in _actionContainers)
+            container.gameObject.SetActive(false);
     }
 
     private int ConvertChanceToPercent(float chance)
