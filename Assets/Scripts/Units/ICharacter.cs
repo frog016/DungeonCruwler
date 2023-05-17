@@ -1,3 +1,3 @@
-public interface ICharacter : IDamageable, IStatsUser, IItemUser, ITargetable, IInterruptible
+public interface ICharacter : IDamageable, IStatsUser, IInventoryUser, ITargetable, IInterruptible
 {
 }

@@ -5,15 +5,30 @@ using UnityEngine;
 public class RoundTurnChanger : MonoBehaviour
 {
     private ITurnSystem _turnSystem;
+    private Coroutine _waitTurnEndedCoroutine;
 
     private void Awake()
     {
         _turnSystem = GetComponent<ITurnSystem>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        StartCoroutine(WaitUntilEntityTurnEnded());
+        StartCoroutine(Subscribe());
+    }
+
+    private IEnumerator Subscribe()
+    {
+        yield return new WaitUntil(() => ((MapTurnSystem)_turnSystem)._isInitialized);
+        _waitTurnEndedCoroutine = StartCoroutine(WaitUntilEntityTurnEnded());
+    }
+
+    private void OnDisable()
+    {
+        if (_waitTurnEndedCoroutine == null)
+            return;
+        
+        StopCoroutine(_waitTurnEndedCoroutine);
     }
 
     private IEnumerator WaitUntilEntityTurnEnded()

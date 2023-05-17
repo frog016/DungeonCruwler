@@ -10,6 +10,8 @@ public class FogDiscoverer : MonoBehaviour
 
     public int ViewRadius { get => _viewRadius; set => _viewRadius = value; }
 
+    public Map Map { get => _map; set => _map = value; }
+
     private void OnValidate()
     {
         if (_sphereCollider == null)
