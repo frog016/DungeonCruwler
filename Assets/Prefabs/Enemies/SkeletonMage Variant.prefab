@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 112715356162883741, guid: ff474b8589a458445944339945024a11, type: 3}
+      propertyPath: _equipments.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 112715356162883741, guid: ff474b8589a458445944339945024a11, type: 3}
+      propertyPath: _equipments.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ac0b5969a055fcd4289bfccf014a8c96, type: 2}
     - target: {fileID: 4791405215566645659, guid: ff474b8589a458445944339945024a11, type: 3}
       propertyPath: _baseStats
       value: 
@@ -22,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ac0b5969a055fcd4289bfccf014a8c96, type: 2}
     - target: {fileID: 4791405215566645661, guid: ff474b8589a458445944339945024a11, type: 3}
       propertyPath: m_Name
-      value: SkeletonMage
+      value: SkeletonMage Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4791405215566645662, guid: ff474b8589a458445944339945024a11, type: 3}
       propertyPath: m_RootOrder

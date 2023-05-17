@@ -25,7 +25,7 @@ public class BattleLevelInitializer : MonoBehaviour
 
     private void BindCombat()
     {
-        _combat.Constructor(new AgilityCombatTurnPlanner(), _fighters);
+        _combat.Constructor(new AgilityTurnPlanner(), _fighters);
     }
 
     private void BindLevel()

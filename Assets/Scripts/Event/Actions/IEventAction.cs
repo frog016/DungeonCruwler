@@ -1,4 +1,4 @@
-﻿public interface IEventAction<in TEvent> where TEvent : IInteractableEvent
+﻿public interface IEventAction
 {
-    void Invoke(TEvent owner, ICharacter target);
+    void Invoke(EventBehaviour owner, ICharacter target);
 }

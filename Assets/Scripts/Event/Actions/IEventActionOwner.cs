@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-public interface IEventActionOwner<in TEvent> where TEvent : IInteractableEvent
+public interface IEventActionOwner
 {
-    IEnumerable<IEventAction<TEvent>> Actions { get; }
+    IEnumerable<IEventAction> Actions { get; }
 }

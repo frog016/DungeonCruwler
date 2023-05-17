@@ -12,6 +12,6 @@ public class StateBasedCombatInitializer : MonoBehaviour
 
     private void Inject()
     {
-        _combat.Constructor(new AgilityCombatTurnPlanner(), _stateMachines);
+        _combat.Constructor(new AgilityTurnPlanner(), _stateMachines);
     }
 }

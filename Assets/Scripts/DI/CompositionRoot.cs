@@ -18,6 +18,9 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private MapTurnSystem _mapTurnSystem;
     [SerializeField] private MonoBehaviour[] _entities;
 
+    [Header("UI")]
+    [SerializeField] private StatsPanel[] _statsPanels;
+
     private void Awake()
     {
         Inject();
@@ -28,6 +31,7 @@ public class CompositionRoot : MonoBehaviour
         BindMovement();
         BindPlayer();
         BindRound();
+        BindUI();
     }
 
     private void BindMovement()
@@ -50,5 +54,13 @@ public class CompositionRoot : MonoBehaviour
             .Cast<ITurnEntity>();
 
         _mapTurnSystem.Constructor(entities);
+    }
+
+    private void BindUI()
+    {
+        foreach (var statsPanel in _statsPanels)
+        {
+            statsPanel.Constructor(_player);
+        }
     }
 }

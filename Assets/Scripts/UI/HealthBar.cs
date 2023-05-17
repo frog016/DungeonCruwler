@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
         if (_damageableUnit == null)
             return;
 
-        _healthText.text = $"{_damageableUnit.Health:F}";
+        _healthText.text = $"{_damageableUnit.Health}/{_damageableUnit.MaxHealth}";
         FollowAt();
     }
 

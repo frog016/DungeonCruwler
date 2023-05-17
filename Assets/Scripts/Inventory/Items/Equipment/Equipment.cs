@@ -1,18 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Equipment/Default equipment", fileName = "Equipment")]
-public class Equipment : ScriptableObject, IEquipmentItem
+public class Equipment : ScriptableItemContainer, IEquipmentItem
 {
     [SerializeField] private int _stackSize;
     [SerializeField] private EquipmentSlot _slot;
     [SerializeField] private StatsConfig<StatType> _additionalStats;
     [SerializeField] private StatsConfig<CompositeStatType> _additionalCompositeStats;
 
-    public int StackSize => _stackSize;
+    public override int StackSize => _stackSize;
     public EquipmentSlot Slot => _slot;
+    public IEnumerable<(StatType, int)> AdditionalStats => _additionalStats.Stats;
+    public IEnumerable<(CompositeStatType, int)> AdditionalCompositeStats => _additionalCompositeStats.Stats;
 
-    public void Activate(IStatsUser statsUser)
+    public override void Activate(IStatsUser statsUser)
     {
         const int sign = 1;
         ChangeStats(_additionalStats, statsUser.Stats, sign);

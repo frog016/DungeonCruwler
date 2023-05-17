@@ -2,6 +2,6 @@
 
 public interface IInteractableEvent
 {
-    event Action<ICharacter> Interacted;
+    event Action<InteractionEventData> Interacted;
     void Interact(ICharacter character);
 }

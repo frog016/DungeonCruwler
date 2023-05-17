@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093e2153d8286c5429559254b8b70dd3, type: 3}
+  m_Name: BypassTrapAction
+  m_EditorClassIdentifier: 
+  _data:
+    _name: "\u041E\u0431\u043E\u0439\u0442\u0438"
+    _description: 
+  _physicStatToCheck: 1
+  _magicStatToCheck: 4
+  _mapper: {fileID: 11400000, guid: d6df0b61183c09b4f8f728d92f33a024, type: 2}
