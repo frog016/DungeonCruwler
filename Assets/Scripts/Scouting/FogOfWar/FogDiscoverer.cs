@@ -1,16 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class FogDiscoverer : MonoBehaviour
 {
     [SerializeField] private int _viewRadius;
     [SerializeField] private SphereCollider _sphereCollider;
-    [SerializeField] private Map _map;
 
     public int ViewRadius { get => _viewRadius; set => _viewRadius = value; }
 
-    public Map Map { get => _map; set => _map = value; }
+    private ITileableMap _map;
+
+    [Inject]
+    public void Constructor(ITileableMap map)
+    {
+        _map = map;
+    }
 
     private void OnValidate()
     {

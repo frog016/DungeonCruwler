@@ -28,6 +28,6 @@ public class HiddenEventBehaviour : EventBehaviour
             return;
         }
 
-        _hiddenAction.Invoke(this, character);
+        _hiddenAction?.Invoke(this, character);
     }
 }

@@ -5,12 +5,14 @@ public class EventInstaller : MonoInstaller
 {
     [SerializeField] private EventBehaviour[] _traps;
     [SerializeField] private EventBehaviour[] _enemies;
+    [SerializeField] private EventBehaviour[] _otherEvents;
     [SerializeField] private ScriptableEventAction[] _eventActions;
 
     public override void InstallBindings()
     {
         BindEvents(_traps);
         BindEvents(_enemies);
+        BindEvents(_otherEvents);
         BindActions();
     }
 

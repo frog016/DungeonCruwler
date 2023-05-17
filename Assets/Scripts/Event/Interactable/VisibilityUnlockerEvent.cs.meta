@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/Inventory/InfiniteInventory.cs.meta
-guid: 9e73a7d1486776a479141eb2bc6c34d3
-========
-guid: 97f71f0e87b601245b4e41c78409c57d
->>>>>>>> Demo-Level:Assets/Scripts/Event/Interactable/VisibilityUnlockerEvent.cs.meta
+guid: c974d54c17a9bf24fbc289915b2c7c56
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

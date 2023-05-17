@@ -1,16 +1,30 @@
 using UnityEngine;
+using Zenject;
 
 [CreateAssetMenu(menuName = "Event/Actions/Observe Room", fileName = "ObserveRoomAction")]
-public class ObserveRoomAction : ScriptableEventAction<VisibilityUnlockerEvent>
+public class ObserveRoomAction : ScriptableEventAction
 {
     [SerializeField] private int _viewRadius;
     [SerializeField] private FogDiscoverer _discovererPrefab;
 
-    public override void Invoke(VisibilityUnlockerEvent owner, ICharacter target)
+    private IGameObjectFactory _factory;
+    private FogOfWar _fog;
+
+    [Inject]
+    public void Constructor(IGameObjectFactory factory, FogOfWar fog)
     {
-        var discoverer = Instantiate(_discovererPrefab, owner.ViewTransform);
+        _factory = factory;
+        _fog = fog;
+    }
+
+    public override void Invoke(EventBehaviour owner, ICharacter target)
+    {
+        base.Invoke(owner, target);
+        var discoverer = _factory.CreateFromComponent(_discovererPrefab);
+        discoverer.transform.SetParent(owner.transform);
+        discoverer.transform.localPosition = Vector3.zero;
         discoverer.ViewRadius = _viewRadius;
-        discoverer.Map = owner.Map;
-        owner.Fog.AddDiscoverer(discoverer);
+
+        _fog.AddDiscoverer(discoverer);
     }
 }

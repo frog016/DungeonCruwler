@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class VisibilityUnlockerEvent : InteractableEventBehaviour<VisibilityUnlockerEvent>
+public class VisibilityUnlockerEvent : InteractableEventBehaviour
 {
     [SerializeField] private Transform _viewTransform;
     [SerializeField] private Map _map;
