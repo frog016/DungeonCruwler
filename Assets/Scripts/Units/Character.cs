@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class Character : DamageableUnit, ICharacter
 {
@@ -15,8 +16,8 @@ public class Character : DamageableUnit, ICharacter
     public IInventory Inventory => _inventory;
     public IEquipmentWearer EquipmentWearer { get; private set; }
 
-
-    protected virtual void Awake()
+    [Inject]
+    public void Constructor()
     {
         Stats = new Stats(_baseStats.Stats);
         CompositeStats = new CompositeStats(Stats, _compositeStats.Stats, _compositeStats.InfluenceStats);

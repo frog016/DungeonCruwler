@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class EnemyMarker : DamageableUnit, ICharacter
 {
@@ -15,7 +16,7 @@ public class EnemyMarker : DamageableUnit, ICharacter
     public IInventory Inventory => _inventory;
     public IEquipmentWearer EquipmentWearer { get; private set; }
 
-    protected virtual void Awake()
+    private void Awake()
     {
         Stats = new Stats(_baseStats.Stats);
         CompositeStats = new CompositeStats(Stats, _compositeStats.Stats, _compositeStats.InfluenceStats);

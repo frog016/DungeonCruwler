@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(IInterruptible))]
 public class PlayerMovementHandler : MovementHandler
@@ -9,6 +10,7 @@ public class PlayerMovementHandler : MovementHandler
     private Camera _camera;
     private IInterruptible _interruptible;
 
+    [Inject]
     public void Constructor(Camera camera)
     {
         _camera = camera;

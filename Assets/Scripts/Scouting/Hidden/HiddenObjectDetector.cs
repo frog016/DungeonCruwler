@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(SphereCollider))]
 public class HiddenObjectDetector : MonoBehaviour
@@ -6,6 +7,7 @@ public class HiddenObjectDetector : MonoBehaviour
     private ICharacter _character;
     private SphereCollider _sphere;
 
+    [Inject]
     public void Constructor(ICharacter character)
     {
         _character = character;

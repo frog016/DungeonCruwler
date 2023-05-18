@@ -19,7 +19,7 @@ public class RoundTurnChanger : MonoBehaviour
 
     private IEnumerator Subscribe()
     {
-        yield return new WaitUntil(() => ((MapTurnSystem)_turnSystem)._isInitialized);
+        yield return new WaitUntil(() => _turnSystem is { Current: { Resource: { } } });
         _waitTurnEndedCoroutine = StartCoroutine(WaitUntilEntityTurnEnded());
     }
 

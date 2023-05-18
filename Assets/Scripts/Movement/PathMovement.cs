@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class PathMovement : MonoBehaviour, IPathMovement
 {
@@ -9,6 +10,7 @@ public class PathMovement : MonoBehaviour, IPathMovement
     private Path _path;
     private IPathfinder _pathfinder;
 
+    [Inject]
     public void Constructor(IPathfinder pathfinder)
     {
         _pathfinder = pathfinder;

@@ -2,13 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class StatsPanel : MonoBehaviour
 {
     [SerializeField] private OrderedStatView<StatType>[] _statViews;
     [SerializeField] private OrderedStatView<CompositeStatType>[] _compositeStatViews;
 
-    public void Constructor(IStatsUser statsUser)
+    [Inject]
+    public void Constructor(ICharacter statsUser)
     {
         InitializeOrderedStats(statsUser.CompositeStats, _compositeStatViews);
         InitializeOrderedStats(statsUser.Stats, _statViews);

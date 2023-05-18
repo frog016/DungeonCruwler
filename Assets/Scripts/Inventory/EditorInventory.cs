@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 [Serializable]
 public class EditorInventory : MonoBehaviour, IInventory
@@ -11,7 +12,8 @@ public class EditorInventory : MonoBehaviour, IInventory
 
     private IInventory _inventory;
 
-    private void Awake()
+    [Inject]
+    public void Constructor()
     {
         _inventory = new InfiniteInventory();
         var items = _equipments.Cast<IItem>().Concat(_items);

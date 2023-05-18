@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class MapTurnSystem : MonoBehaviour, ITurnSystem
 {
@@ -10,12 +11,11 @@ public class MapTurnSystem : MonoBehaviour, ITurnSystem
 
     private int _currentIndex;
     private List<ITurnEntity> _entities;
-    public bool _isInitialized;
 
+    [Inject]
     public void Constructor(IEnumerable<ITurnEntity> entities)
     {
         _entities = entities.ToList();
-        _isInitialized = true;
     }
 
     public void Next()
