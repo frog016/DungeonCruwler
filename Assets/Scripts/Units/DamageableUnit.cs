@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DamageableUnit : MonoBehaviour, IDamageable
 {
-    public int Health { get; protected set; }
-    public int MaxHealth { protected set; get; }
+    public virtual int Health { get; protected set; }
+    public virtual int MaxHealth { get; protected set; }
     public event Action<int> HealthChanged;
     public IEnumerable<IEffect> Effects => _effects;
 
     private readonly List<IEffect> _effects = new List<IEffect>();
 
-    public void ApplyDamage(int damage)
+    public virtual void ApplyDamage(int damage)
     {
         var exceptedHealth = Health - damage;
         Health = Mathf.Max(0, exceptedHealth);

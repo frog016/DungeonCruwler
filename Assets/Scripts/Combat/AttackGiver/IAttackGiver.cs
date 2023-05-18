@@ -1,4 +1,4 @@
 ﻿public interface IAttackGiver
 {
-    bool TryGetAttack(out Attack attack, out CombatEntity target);
+    bool TryGetAttack(out Attack attack, out CombatEntityBehaviour target);
 }

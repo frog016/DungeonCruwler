@@ -116,7 +116,7 @@ Transform:
   m_Children:
   - {fileID: 2401916233656442885}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2401916234800164989
 MonoBehaviour:
@@ -127,10 +127,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2401916234800164987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94a0450812c108f46b7b83b798b067cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 20a6e9d94d6cf6f408f7f17679730dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyOnInteract: 1
+  _complexityClass: 0
+  _actions: []
+  _descriptionData:
+    _name: 
+    _description: 
 --- !u!54 &2401916234800164990
 Rigidbody:
   m_ObjectHideFlags: 0

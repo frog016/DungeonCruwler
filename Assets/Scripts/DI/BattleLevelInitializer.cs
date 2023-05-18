@@ -6,7 +6,7 @@ public class BattleLevelInitializer : MonoBehaviour
 {
     [Header("Combat")]
     [SerializeField] private StateTurnBasedCombat _combat;
-    [SerializeField] private CombatEntity[] _fighters;
+    [SerializeField] private CombatEntityBehaviour[] _fighters;
 
     [Header("Level")]
     [SerializeField] private BattleLevel _level;

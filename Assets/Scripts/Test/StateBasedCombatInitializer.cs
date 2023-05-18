@@ -3,7 +3,7 @@
 public class StateBasedCombatInitializer : MonoBehaviour
 {
     [SerializeField] private StateTurnBasedCombat _combat;
-    [SerializeField] private CombatEntity[] _stateMachines;
+    [SerializeField] private CombatEntityBehaviour[] _stateMachines;
 
     private void Awake()
     {

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PreparingCombatState : ICombatState
 {
-    private CombatEntity _entity;
+    private CombatEntityBehaviour _entity;
     private ICombatState _nextState;
 
-    public void Enter(CombatEntity entity)
+    public void Enter(CombatEntityBehaviour entity)
     {
         _entity = entity;
         _entity.StartCoroutine(WaitAttackAndTargetCoroutine());
@@ -17,7 +17,7 @@ public class PreparingCombatState : ICombatState
     {
         var attackGiver = _entity.AttackGiver;
         Attack attack = null;
-        CombatEntity target = null;
+        CombatEntityBehaviour target = null;
         yield return new WaitUntil(() => attackGiver.TryGetAttack(out attack, out target));
         Debug.Log($"The {_entity} has chosen {attack} and target {target}.");
         _nextState = new AttackAnimationState(attack, target);

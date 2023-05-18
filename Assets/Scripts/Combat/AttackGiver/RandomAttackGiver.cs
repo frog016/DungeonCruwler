@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(ICharacter))]
 public class RandomAttackGiver : MonoBehaviour, IAttackGiver
 {
-    [SerializeField] private CombatEntity _target;
+    [SerializeField] private CombatEntityBehaviour _target;
 
     private Weapon _weapon;
 
@@ -15,7 +15,7 @@ public class RandomAttackGiver : MonoBehaviour, IAttackGiver
         _weapon = character.GetWeapon();
     }
 
-    public bool TryGetAttack(out Attack attack, out CombatEntity target)
+    public bool TryGetAttack(out Attack attack, out CombatEntityBehaviour target)
     {
         attack = GetRandomAttack();
         target = _target;

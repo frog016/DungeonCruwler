@@ -13,7 +13,7 @@ public class AttackButtonsPanel : MonoBehaviour
 
     private void Start()
     {
-        _player = FindObjectsOfType<CombatEntity>().First(entity => entity.Team == Team.Player);
+        _player = FindObjectsOfType<CombatEntityBehaviour>().First(entity => entity.Team == Team.Player);
         _buttons = InitializeButtons().ToArray();
         
         foreach (var presenter in _buttons) 

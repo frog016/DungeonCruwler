@@ -4,17 +4,17 @@ using UnityEngine;
 public class AttackAnimationState : ICombatState
 {
     private readonly Attack _attack;
-    private readonly CombatEntity _target;
+    private readonly CombatEntityBehaviour _target;
 
-    private CombatEntity _entity;
+    private CombatEntityBehaviour _entity;
 
-    public AttackAnimationState(Attack attack, CombatEntity target)
+    public AttackAnimationState(Attack attack, CombatEntityBehaviour target)
     {
         _attack = attack;
         _target = target;
     }
 
-    public void Enter(CombatEntity entity)
+    public void Enter(CombatEntityBehaviour entity)
     {
         _entity = entity;
         entity.StartCoroutine(AnimateAttack());

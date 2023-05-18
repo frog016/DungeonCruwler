@@ -11,10 +11,10 @@ public class StateTurnBasedCombat : MonoBehaviour, ITurnBasedCombat
     public IEnumerable<ICombatEntity> Fighters => _stateMachines;
 
     private ITurnPlanner _turnPlanner;
-    private CombatEntity[] _stateMachines;
+    private CombatEntityBehaviour[] _stateMachines;
     private Coroutine _combatCoroutine;
     
-    public void Constructor(ITurnPlanner turnPlanner, CombatEntity[] stateMachines)
+    public void Constructor(ITurnPlanner turnPlanner, CombatEntityBehaviour[] stateMachines)
     {
         _turnPlanner = turnPlanner;
         _stateMachines = stateMachines;
@@ -54,7 +54,7 @@ public class StateTurnBasedCombat : MonoBehaviour, ITurnBasedCombat
         CombatEnded?.Invoke(_stateMachines.First(machine => machine.Health != 0));
     }
 
-    private CombatEntity[] GetSequence()
+    private CombatEntityBehaviour[] GetSequence()
     {
         return _turnPlanner
             .PlaneTurnSequence(_stateMachines)
