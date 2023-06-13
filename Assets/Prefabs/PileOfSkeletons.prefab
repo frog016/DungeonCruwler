@@ -92,9 +92,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 610707276476113496}
-  - component: {fileID: 610707276476113497}
   - component: {fileID: 610707276476113498}
   - component: {fileID: 610707276476113499}
+  - component: {fileID: 2913822761032209038}
+  - component: {fileID: 2022377132991045393}
   m_Layer: 0
   m_Name: PileOfSkeletons
   m_TagString: Untagged
@@ -118,23 +119,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &610707276476113497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610707276476113503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a6e9d94d6cf6f408f7f17679730dfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _complexityClass: 0
-  _actions: []
-  _descriptionData:
-    _name: 
-    _description: 
 --- !u!54 &610707276476113498
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -183,3 +167,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2913822761032209038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610707276476113503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8b7c8141f622540822a2e6fa2faf69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventory: {fileID: 2022377132991045393}
+  _itemWindow: {fileID: 0}
+--- !u!114 &2022377132991045393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610707276476113503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bcc425a0f644ea9f87dd7bbcd450de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _equipments: []
+  _items:
+  - {fileID: 11400000, guid: 20843f2489e7c13418a9fbb190b67b78, type: 2}
+  - {fileID: 11400000, guid: 20843f2489e7c13418a9fbb190b67b78, type: 2}
+  - {fileID: 11400000, guid: 35313f85144dfe84d989139e30f54243, type: 2}

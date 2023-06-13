@@ -23,14 +23,10 @@ public class UIInventoryPanel : UIPanel
         _factory = factory;
     }
 
-    private void Start()
+    public override void Open()
     {
         InitializeItemGrid(Owner.Inventory);
         InitializeEquipmentGrid(Owner.EquipmentWearer);
-    }
-
-    public override void Open()
-    {
         base.Open();
         _blackout.SetActive(true);
     }
@@ -39,6 +35,8 @@ public class UIInventoryPanel : UIPanel
     {
         base.Close();
         _blackout.SetActive(false);
+        _itemGrid.Clear();
+        _equipmentGrid.Clear();
     }
 
     private void InitializeItemGrid(IInventory inventory)

@@ -28,6 +28,14 @@ public abstract class UIGrid<TCell> : MonoBehaviour where TCell : UICell
 
     public abstract TCell[] GetEmptyCells(ItemUiContainer content);
 
+    public void Clear()
+    {
+        foreach (var cell in _cells)
+        {
+            Destroy(cell?.Content);
+        }
+    }
+
     private IEnumerable<TCell> GetCellsWithContent(ItemUiContainer content)
     {
         return _cells

@@ -7774,6 +7774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14961,6 +14965,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7894936091472120603, guid: 1674300a2c961a447b01550ce7bf380a, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19836,6 +19844,123 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 779514122920797422, guid: a6f96ab2f4f86f446a02b3c5f8ee72fa, type: 3}
   m_PrefabInstance: {fileID: 495022920}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &497718805
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 649965107}
+    m_Modifications:
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300419207827861614, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+      propertyPath: m_Name
+      value: MainWindowTreasure
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+--- !u!224 &497718806 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6300419207827861613, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+  m_PrefabInstance: {fileID: 497718805}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &497718808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 497718808, guid: c8346f94819464c4e8790d05744592fe, type: 3}
+  m_PrefabInstance: {fileID: 497718805}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b863ef90e492e4e8992c4b32a3dcf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &498075640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20222,6 +20347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23347,6 +23476,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7894936091472120603, guid: 1674300a2c961a447b01550ce7bf380a, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24573,6 +24706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25508,6 +25645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25626,6 +25767,7 @@ RectTransform:
   - {fileID: 1744847057}
   - {fileID: 343210415}
   - {fileID: 1925031940}
+  - {fileID: 497718806}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32499,6 +32641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33093,6 +33239,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7894936091472120603, guid: 1674300a2c961a447b01550ce7bf380a, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36236,6 +36386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45956,6 +46110,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49535,6 +49693,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7894936091472120603, guid: 1674300a2c961a447b01550ce7bf380a, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52346,6 +52508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -55938,6 +56104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7894936091472120603, guid: 1674300a2c961a447b01550ce7bf380a, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58550,6 +58720,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7894936091472120603, guid: 1674300a2c961a447b01550ce7bf380a, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -60491,6 +60665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -62644,6 +62822,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -68873,6 +69055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -71367,7 +71553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1829876795
 Transform:
   m_ObjectHideFlags: 0
@@ -75280,6 +75466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PileOfSkeletons (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2913822761032209038, guid: 3f3110e938d5c774c9df7625191d3373, type: 3}
+      propertyPath: _itemWindow
+      value: 
+      objectReference: {fileID: 497718808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
