@@ -7,6 +7,8 @@ public class PathMovement : MonoBehaviour, IPathMovement
 {
     [SerializeField] private float _speed;
 
+    public float Speed { get; private set; }
+
     private Path _path;
     private IPathfinder _pathfinder;
 
@@ -47,6 +49,7 @@ public class PathMovement : MonoBehaviour, IPathMovement
 
     private IEnumerator MoveCoroutine(Vector3 from, Vector3 to)
     {
+        Speed = 1;
         var step = _speed / (to - from).magnitude;
         var time = 0f;
         while (time <= 1f)
@@ -56,5 +59,7 @@ public class PathMovement : MonoBehaviour, IPathMovement
             transform.forward = (to - from).normalized;
             yield return new WaitForFixedUpdate();
         }
+
+        Speed = 0;
     }
 }

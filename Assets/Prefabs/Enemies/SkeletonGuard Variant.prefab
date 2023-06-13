@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791405215566645662, guid: ff474b8589a458445944339945024a11, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4791405215566645662, guid: ff474b8589a458445944339945024a11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -158,6 +158,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f09e3b549c55f71429dfb7dc4468240a, type: 3}
       propertyPath: m_Name
       value: skeleton_guardian_withrig_notextures
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: f09e3b549c55f71429dfb7dc4468240a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: f09e3b549c55f71429dfb7dc4468240a, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: f09e3b549c55f71429dfb7dc4468240a, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
